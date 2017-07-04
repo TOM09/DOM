@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				text-align: center;
+				font-size: 20px;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" name="" id="btn" value="变变" />
+		<div id="box">上</div>
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var box = document.getElementById("box");
+			var onOff = "as";
+			btn.onclick = function() {
+				if(onOff == "as") {
+					box.innerHTML = "右"
+					onOff = "sd";
+				}else if(onOff == "sd") {
+					box.innerHTML = "左"
+					onOff = "df";
+
+				}else if(onOff == "df") {
+					box.innerHTML = "下"
+					onOff = "fg";
+				}else{
+					box.innerHTML = "上"
+					onOff = "as";
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				height: 450px;
+				width: 400px;
+				border: 1px solid red;
+			}
+			
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.active {
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<img src="img/1.png" id="imgS"/>
+		</div>
+		<input type="button" id="btn" value="上一个" />
+		<input type="button" id="btn2" value="下一个" />
+		<input type="button" id="btn3" value="顺序" class="active"/>
+		<input type="button" id="btn4" value="循环" />
+		
+		<script>
+		window.onload = function(){
+			var btn = document.getElementById("btn");
+			var btn2 = document.getElementById("btn2");
+			var btn3 = document.getElementById("btn3");
+			var btn4 = document.getElementById("btn4");
+			var imgS = document.getElementById("imgS");
+			
+			var imgs = ["img/1.png","img/2.png","img/3.png","img/4.png"];
+			
+			var onOff = true;
+			//循环和顺序开关  默认为循环
+			var onOff2 = true
+			var n = 0;
+			
+			btn3.onclick = function(){
+				if(onOff){
+					btn3.className = "active";
+					btn4.className = "";
+					onOff2 = true;
+				}
+			}
+			
+			btn4.onclick = function(){
+				if(onOff){
+					btn4.className = "active";
+					btn3.className = "";
+					onOff2 = false;
+				}
+			}
+			//下一张
+			btn2.onclick = function(){
+				n++;
+				//如果开关为真
+				if(onOff){
+					//那么当点击到最后一个数字时
+					if(n>imgs.length-1){
+						//如果循环为真
+						if(onOff2){
+							n=0;
+						}
+						//否则就停止在最后一张 并提示
+						else{
+							n=imgs.length-1;
+							alert("最后一张图了")
+						}
+					}
+					fn()
+				}
+			}
+			
+			btn.onclick = function(){
+				n--;
+				//如果开关为真
+				if(onOff){
+					//那么当点击到最后一个数字时
+					if(n<0){
+						//如果循环为真
+						if(onOff2){
+							n=imgs.length-1;
+						}
+						//否则就停止在最后一张 并提示
+						else{
+							n=0;
+							alert("最后一张图了")
+						}
+					}
+					fn()
+				}
+			}
+			//切换函数
+			function fn(){
+				imgS.src = imgs[n];
+			}
+		//window.onload的括号	
+		}
+			
+		</script>
+	</body>
+
+</html>
