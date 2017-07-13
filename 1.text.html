@@ -6,12 +6,9 @@
 		<title></title>
 		<style>
 			#box {
-				width: 100px;
-				height: 100px;
-				background: red;
-				position: absolute;
-				left: 0;
-				top: 0;
+				1:1;
+			}#box {
+				1:1;
 			}
 		</style>
 	</head>
@@ -19,27 +16,4 @@
 	<body>
 		<div id="box"></div>
 	</body>
-	<script>
-		window.onload = function() {
-				var box = document.getElementById("box");
-				var timer;
-				document.onkeydown = function(ev) {
-					if(ev.keyCode == 37) {
-						clearInterval(timer);
-
-						timer = setInterval(function() {
-							box.style.left = box.offsetLeft - 10 + "px";
-						}, 10)
-					}
-					if(ev.keyCode == 38) {
-						clearInterval(timer);
-
-						timer = setInterval(function() {
-							box.style.top = box.offsetTop - 10 + "px";
-						}, 10)
-					}
-
-				}
-	</script>
-
 </html>
