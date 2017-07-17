@@ -5,16 +5,37 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
-<<<<<<< HEAD
-<<<<<<< HEAD
-			这是第一行测试
-
-
-
 
 		</style>
 	</head>
 
 	<body>
+
+		<input type="text" name="" id="ipt1" value="" />
+		<input type="button" name="" id="ipt2" value="不管你输入什么,我都能替换" />
+		<ul id="ipt3">
+
+		</ul>
+		<script type="text/javascript">
+			var ipt2 = document.getElementById("ipt2")
+			var ul = document.getElementById("ipt3")
+				//创建并且插入
+			ipt2.onclick = function() {
+				var ipt1 = document.getElementById("ipt1").value;
+				var str = "";
+				//获取li
+				var lis = document.createElement("li");
+				//插入ul
+				ul.appendChild(lis);
+				//将li的内容替换为
+				lis.innerHTML = ipt1.replace(ipt1, function($0) {
+					for(var i = 0; i < $0.length; i++) {
+						str += "爱你"
+					}
+					return str;
+				});
+			}
+		</script>
 	</body>
+
 </html>
