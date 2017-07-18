@@ -4,71 +4,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style>
-			#box {
-				width: 500px;
-				height: 700px;
-				border: 1px solid red;
-				position: relative;
-			}
-			
-			#one {
-				position: absolute;
-				left: 100px;
-				height: 100px;
-				width: 0px;
-				overflow: hidden;
-				background: red;
-				font-size: 30px;
-				text-align: center;
-				line-height: 100px;
-				transition: 3s;
-			}
-			
-			#two,
-			#three {
-				position: absolute;
-				width: 30px;
-				overflow: hidden;
-				height: 0px;
-				margin-top: 200px;
-				font-size: 30px;
-				background: red;
-				transition: 3s;
-			}
-			#two {
-				left: 10;
-				top:100px
-			}
-			#three {
-				right: 10px;
-				top:900px;
-			}
-			123 {
-				right: 10px;
-			}
-			
-		</style>
 	</head>
 
 	<body>
-		<div id="box">
-			<div id="one">撒反对撒啊</div>
-			<div id="two">阿萨德发送</div>
-			<div id="three">的风速算法</div>
-		</div>
-		<input type="button" id="btn" value="变化" />
 		<script type="text/javascript">
-			var box = document.getElementById("box");
-			var box2 = document.getElementById("one");
-			var box3 = document.getElementById("two");
-			var box4 = document.getElementById("three");
-			btn.onclick = function(){
-				box2.style.width = "200px";
-				box3.style.height = "200px";
-				box4.style.height = "200px";
-				
-			}
+			var str = "ads asd asd x!!x";
+			console.log(str);
+			console.log(str.replace(/\b/g,""));
+			
+			
+			var str = "asd li asd"
+			var sClass = "li"
+			var re = new RegExp('\\b'+sClass+'\\b')
+			console.log(re.test(str))
+			
+			var str123 = "a11ca222ca333ca44444412ca123ca123ca23c"
+			console.log(str123.match(/a(\d)\1+c/g))
+			
+			var str1234 = "a3433ca545ca646c"
+			str1234.replace(/a(\d)4\1\1+c/g,function($0,$1,$2){
+				console.log($1);
+			})
+//			console.log(str123.match(/a(\d)\1+c/g))
 		</script>
 	</body>
 
