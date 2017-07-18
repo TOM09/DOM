@@ -25,6 +25,25 @@
 			str1234.replace(/a(\d)4\1\1+c/g,function($0,$1,$2){
 				console.log($1);
 			})
+			
+			
+			var stra = "asdfkjas1dfasdfaaaadshj12fshjxbxgtw34ysa5n";
+			var min = -Infinity;
+			var num = "";
+			// 用空字符切割 放到数组里  对其进行排序    再用空字符拼接成一个字符串
+			stra = stra.split('').sort().join('');
+			console.log(stra)
+			
+			stra.replace(/(\w)\1+/g,function($0,$1){
+				if(min < $0.length){
+					min = $0.length;
+					num = $1;
+				}
+			console.log(num)
+//			console.log(s)
+			})
+				console.log("最长的是"+num+"次数是"+min)
+			
 //			console.log(str123.match(/a(\d)\1+c/g))
 		</script>
 	</body>
