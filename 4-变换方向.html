@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			function fn(name,age,say){
+		/*	function fn(name,age,say){
 				this.name = name;
 				this.age = age;
 				this.say = function(){
@@ -19,6 +19,40 @@
 			}
 			var t = new fn("张三",18,20);
 			console.log(t.say());
+			
+			
+			
+			var arr = [];
+			var arr2 = [];
+			console.log(arr.push)
+			
+			*/
+			//函数
+			function Fn(name){
+				this.name = name;
+			}
+//			//对象的原型
+//			Object.prototype.say = function(){
+//				alert("obj")
+//			}
+			//函数的原型
+				Function.prototype.say = function(){
+					alert("Function的原型的say")
+				}
+			//Fn的原型
+//			Fn.prototype.say = function(){
+//				alert("Fn的原型的say")
+//			}
+//	//			
+//				Fn.say = function(){
+//					alert("Fn的say")
+//				}
+
+			console.group("")
+			var f1 = new Fn();
+			f1.say();
+	//			console.dir(Fn)
+	//			f1.say();
 		</script>
 	</body>
 
