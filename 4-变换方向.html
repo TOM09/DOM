@@ -9,22 +9,16 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			function fn(name,age){
-				//原材料
-				var obj = {};
-				//加工
-				obj.name = name;
-				obj.age = age;
-				obj.say = function(){
-					alert(this.name + this.age)
+			function fn(name,age,say){
+				this.name = name;
+				this.age = age;
+				this.say = function(){
+					alert(say)
 				}
-				//出厂
-				console.log(obj.name)
-				return obj
+				
 			}
-			
-			var t = fn("张三",18);
-			console.log(t.name);
+			var t = new fn("张三",18,20);
+			console.log(t.say());
 		</script>
 	</body>
 
