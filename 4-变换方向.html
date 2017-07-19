@@ -5,38 +5,26 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
-			#box {
-				width: 100px;
-				height: 100px;
-				background: red;
-				text-align: center;
-				font-size: 20px;
-				line-height: 100px;
-			}
 		</style>
 	</head>
-
 	<body>
-		<input type="text" name="" id="btn" />
-		<input type="text" name="" id="btn2" />
-		<input type="button" name="" id="btn3" value="变变" />
-		<div id="box"></div>
 		<script type="text/javascript">
-			var box = document.getElementById("box");
-
-			var btn = document.getElementById("btn");
-			var btn2 = document.getElementById("btn2");
-			var btn3 = document.getElementById("btn3");
-			btn3.onclick = function() {
-				var b1 = btn.value;
-				var b2 = Number(btn2.value);
-				fn(b1, b2);
+			function fn(name,age){
+				//原材料
+				var obj = {};
+				//加工
+				obj.name = name;
+				obj.age = age;
+				obj.say = function(){
+					alert(this.name + this.age)
+				}
+				//出厂
+				console.log(obj.name)
+				return obj
 			}
-
-			function fn(obj, st) {
-				st += parseInt(getComputedStyle(box)[obj]);
-				box.style[obj] = st + "px"
-			}
+			
+			var t = fn("张三",18);
+			console.log(t.name);
 		</script>
 	</body>
 
