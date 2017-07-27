@@ -1,69 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style>
-			#box {
-				width: 500px;
-				height: 700px;
-				border: 1px solid red;
-				position: relative;
-			}
-			
-			#one {
-				position: absolute;
-				left: 100px;
+		<style type="text/css">
+			#box{
+				width: 100px;
 				height: 100px;
-				width: 0px;
-				overflow: hidden;
 				background: red;
-				font-size: 30px;
-				text-align: center;
-				line-height: 100px;
-				transition: 3s;
 			}
-			
-			#two,
-			#three {
+			#box2{
+				width: 100px;
+				height: 100px;
+				background: black;
 				position: absolute;
-				width: 30px;
-				overflow: hidden;
-				height: 0px;
-				margin-top: 200px;
-				font-size: 30px;
-				background: red;
-				transition: 3s;
-			}
-			#two {
-				left: 0;
-			}
-			#three {
-				right: 0;
+				top:100px;
 			}
 		</style>
 	</head>
-
+	<script type="text/javascript" src="jquery-3.2.1.min.js">
+	</script>
 	<body>
-		<div id="box">
-			<div id="one">撒反对撒啊</div>
-			<div id="two">阿萨德发送</div>
-			<div id="three">的风速算法</div>
-		</div>
-		<input type="button" id="btn" value="变化" />
 		<script type="text/javascript">
-			var box = document.getElementById("box");
-			var box2 = document.getElementById("one");
-			var box3 = document.getElementById("two");
-			var box4 = document.getElementById("three");
-			btn.onclick = function(){
-				box2.style.width = "200px";
-				box3.style.height = "200px";
-				box4.style.height = "200px";
-				
-			}
-		</script>
-	</body>
+			$(function(){
+				$("#box").mousedown(function(ev){
+					alert(1);
 
+				})
+				
+				$("#box2").mousedown(function(ev){
+					alert(2);
+					//阻止冒泡
+					ev.originalEvent.cancelBubble = true;
+				})
+			})
+		</script>		
+		asdfasfdafdasfdasdfasdfasdfasfd
+		<div id="box"><div id="box2"></div></div>
+			
+	</body>
 </html>
