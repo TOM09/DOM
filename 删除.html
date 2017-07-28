@@ -3,40 +3,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style type="text/css">
-			#box{
-				width: 100px;
-				height: 100px;
-				background: red;
-			}
-			#box2{
-				width: 100px;
-				height: 100px;
-				background: black;
-				position: absolute;
-				top:100px;
-			}
-		</style>
+
 	</head>
 	<script type="text/javascript" src="jquery-3.2.1.min.js">
 	</script>
 	<body>
 		<script type="text/javascript">
-			$(function(){
-				$("#box").mousedown(function(ev){
-					alert(1);
-
-				})
-				
-				$("#box2").mousedown(function(ev){
-					alert(2);
-					//阻止冒泡
-					ev.originalEvent.cancelBubble = true;
-				})
-			})
-		</script>		
-		asdfasfdafdasfdasdfasdfasdfasfd
-		<div id="box"><div id="box2"></div></div>
-			
+		let [x=y,y] = [null,5]
+		console.log(x,y);
+		</script>
 	</body>
 </html>
