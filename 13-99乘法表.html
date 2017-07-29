@@ -6,17 +6,35 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var str = '';
-			for(var i=1;i<10;i++){
-				
-				str+='<div>';
-				for (var j = 1; j <= i; j++) {
-					
-					str += j+'*'+i+'='+i*j+'&nbsp;';
+		
+		obj[Symbol.iterator] = function(){
+			let arr = Object.keys(obj);//[name,age]
+			let i = 0;
+			let len = arr.length;
+		}
+		return{
+			next(){
+				if(i < len){
+					return {
+						value : {
+							key:arr[i],
+							val:obj[arr[i++]]
+						},
+						done:false
+					}
+		//否则
+				}else{
+					return{
+						value:null;
+						done:true
+					}
 				}
-				str+='</div>';
 			}
-			document.body.innerHTML = str;
+		}
+		
+		for(var {val:v,key:k} of obj){
+			
+		}
 		</script>
 	</body>
 </html>
