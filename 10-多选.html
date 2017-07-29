@@ -6,46 +6,56 @@ www.shouce.com
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style type="text/css">			div {
-				width: 100px;
-				height: 100px;
-				border: 1px solid black;
-			}
-
-				border: 2px solid red;
 	</head>
-
 	<body>
-		<div id="box1">男</div>
-		<div id="box3">其他</div>
 	</body>
-
 	<script type="text/javascript">
-		var divs = document.getElementsByTagName("div");
-		for(var i = 0; i < divs.length; i++) {
-			//自定义一个属性为假
-			divs[i].onOff = true;
-				//当属性为假时
-					//边框无色 ,并且开关为假
-					this.className = "";
-					this.onOff = false;
-					//否则边框有色  属性为真
-				} else {
-					this.className = "box";
-					this.onOff = true;
-
-				}*/
-				if(this.onOff) {
-					this.className = "box";
-					this.onOff = false;
-					//否则边框有色  属性为真
-				} else {
-					this.className = "";
-					this.onOff = true;
-
+		var info2 = [
+				{
+					name:'小白1',
+					age:27
+				},
+				{
+					name:'小白2',
+					age:31
+				},
+				{
+					name:'小白3',
+					age:35
+				},
+				{
+					name:'小白4',
+					age:23
+				},
+				{
+					name:'小白5',
+					age:28
+				},
+				{
+					name:'小白6',
+					age:33
+				},
+				{
+					name:'小白7',
+					age:20
 				}
+			];
+			
+//			info2
+			function fn(id){
+				var obj = null;
+				var n = Infinity;
+				for (var i = 0; i < id.length; i++) {
+					if(id[i].age < n){
+						 n = id[i].age
+						obj = id[i]
+
+					}
+				}
+						return obj;
+				
 			}
-		}
+			console.log(fn(info2))
 	</script>
 
 </html>
