@@ -4,58 +4,59 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
-			#box{
-				width:100px;
-				height:100px;
-				background:red;
-				position:absolute;
-				left: 0;
-				top: 0;
-			}
+		table{
+                border-collapse: collapse;
+            }
+
 		</style>
 	</head>
 	<body>
-		<div id="box"></div>
+		<table border="1" cellspacing="" cellpadding="" id="table">
+			<thead>
+				<tr>
+					<th>星期一</th>
+					<th>星期二</th>
+					<th>星期三</th>
+					<th>星期四</th>
+					<th>星期五</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>css</td>
+					<td>css</td>
+					<td>css</td>
+					<td>css</td>
+					<td>css</td>
+				</tr>
+				<tr>
+					<td>html</td>
+					<td>html</td>
+					<td>html</td>
+					<td>html</td>
+					<td>html</td>
+				</tr>
+				<tr>
+					<td>js</td>
+					<td>js</td>
+					<td>js</td>
+					<td>js</td>
+					<td>js</td>
+				</tr>
+				<tr>
+					<td>js</td>
+					<td>js</td>
+					<td>js</td>
+					<td>js</td>
+					<td>js</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5">自习</td>
+				</tr>
+			</tfoot>
+		</table>
 	</body>
-	<script>
-		window.onload = function(){
-			var box = document.getElementById("box");
-			var timer;
-			document.onkeydown = function(ev){
-				if(ev.keyCode == 37){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.left = box.offsetLeft - 10 + "px";
-					},10)
-				}
-				if(ev.keyCode == 38){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.top = box.offsetTop - 10 + "px";
-					},10)
-				}
-				if(ev.keyCode == 39){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.left = box.offsetLeft + 10 + "px";
-					},10)
-				}
-				if(ev.keyCode == 40){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.top = box.offsetTop + 10 + "px";
-					},10)
-				}
-				
-			}
-			document.onkeyup = function(ev){
-				clearInterval(timer); 
-			}
-			
-		}
-	</script>
+	
 </html>
