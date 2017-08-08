@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//				var d=12;
+			//添加了形参之后为什么会改变
+			function fn2(){
+//				var d=undefined;
+				console.log(d);		//undefined
+				d=24;
+				console.log(d);	
+			}
+			fn2();
+			console.log(d);			//12			
+		</script>
+	</body>
+</html>

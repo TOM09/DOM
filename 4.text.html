@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<input type=button onclick="window.location.href('http://www.baidu.com')" value="点击" />
+		<script>
+			var uls = document.getElementsByTagName("ul");
+			var lis = document.getElementsByTagName("li");
+			for (var i = 0; i < uls.length; i++) {
+				uls[i]
+			}
+			
+				for(var i = 0; i < lis.length; i++) {
+					lis[i].onclick = function() {
+						for (var i = 0; i < lis.length; i++) {
+							lis[i].style.backgroundColor = ""
+						}
+					this.style.backgroundColor = "red"
+				}
+			}
+		</script>
+	</body>
+
+</html>
