@@ -27,6 +27,14 @@
 		<input type="button" value="height"/>
 		<input type="button" value="color"/>
 		<input type="button" value="background"/>
+		<input type="button" value="width"/>
+		<input type="button" value="height"/>
+		<input type="button" value="color"/>
+		<input type="button" value="background"/>
+		<input type="button" value="width"/>
+		<input type="button" value="height"/>
+		<input type="button" value="color"/>
+		<input type="button" value="background"/>
 		<div id="box">1</div>
 		<div id="box2">2</div>
 		<script>
@@ -48,14 +56,6 @@
 				//box.style.color = '#fff';
 				fn(box,'color','#fff')
 				fn(box2,'color','#fff')
-			}
-			btns[3].onclick = function(){
-				//box.style.background = 'blue';
-				fn(box,'background','blue')
-				fn(box2,'background','blue')
-			}
-			function fn(obj,sty,col){
-				obj.style[sty] = col;
 			}
 		</script>
 	</body>
