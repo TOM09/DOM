@@ -32,7 +32,13 @@
 				this.disx
 			}
 			
+		fn.prototype.down = function(){
+			console.log(this.box)
+			this.box.onmousedown = function(ev){
+				this.disx
+			}
 			
+				
 		}
 		
 		var p1 = new fn("box");
