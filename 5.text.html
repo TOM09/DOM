@@ -40,11 +40,6 @@
 				disx = ev.clientX - box.offsetLeft;
 				disy = ev.clientY - box.offsetTop;
 				console.log(box.getBoundingClientRect().top)
-				console.log(box.offsetTop)
-				document.onmousemove = function(ev){
-					var l = ev.clientX - disx;
-					var t = ev.clientY - disy;
-					if(l<0){
 						l = 0;
 					}else if(l>window.innerWidth - box.offsetWidth){
 						l = window.innerdWidth - box.offsetWidth;
@@ -59,7 +54,11 @@
 					box.style.top = t + "px";
 
 				}
-				document.onmouseup = function(){
+				document.onmouseup = functi	document.onmouseup = function(){
+					document.onmousemove = document.onmousemove = null;
+				}	document.onmouseup = function(){
+					document.onmousemove = document.onmousemove = null;
+				}on(){
 					document.onmousemove = document.onmousemove = null;
 				}
 				
