@@ -32,21 +32,9 @@
 				this.disx
 			}
 			
-		fn.prototype.down = function(){
+		fn.prototype.downs = function(){
 			console.log(this.box)
 			this.box.onmousedown = function(ev){
-				this.disx
-			}
-			
-				
-		}
-		
-		var p1 = new fn("box");
-		p1.down();
-		//原代码
-		var box = document.getElementById("box");
-			var disx;
-			var disy;
 			
 			box.onmousedown = function(ev){
 				disx = ev.clientX - box.offsetLeft;
@@ -59,7 +47,7 @@
 					if(l<0){
 						l = 0;
 					}else if(l>window.innerWidth - box.offsetWidth){
-						l = window.innerWidth - box.offsetWidth;
+						l = window.innerdWidth - box.offsetWidth;
 					}
 					
 					if(t<0){
