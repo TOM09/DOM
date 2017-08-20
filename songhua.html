@@ -1,99 +1,129 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-
-	<body>
-		<script type="text/javascript">
-			var str = "ads asd asd x!!x";
-			console.log(str);
-			console.log(str.replace(/\b/g,""));
-			
-			
-			var str = "asd li asd"
-			var sClass = "li"
-			var re = new RegExp('\\b'+sClass+'\\b')
-			console.log(re.test(str))
-			
-			var str123 = "a11ca222ca333ca44444412ca123ca123ca23c"
-			console.log(str123.match(/a(\d)\1+c/g))
-			
-			var str1234 = "a3433ca545ca646c"
-			str1234.replace(/a(\d)4\1\1+c/g,function($0,$1,$2){
-				console.log($1);
-			})
-			
-			
-			var stra = "asdfkjas1dfasdfaaaadshj12fshjxbxgtw34ysa5n";
-			var min = -Infinity;
-			var num = "";
-			// 用空字符切割 放到数组里  对其进行排序    再用空字符拼接成一个字符串
-			stra = stra.split('').sort().join('');
-			console.log(stra)
-			
-			stra.replace(/(\w)\1+/g,function($0,$1){
-				if(min < $0.length){
-					min = $0.length;
-					num = $1;
-				}
-			console.log(num)
-//			console.log(s)
-			})
-				console.log("最长的是"+num+"次数是"+min)
-			
-//			console.log(str123.match(/a(\d)\1+c/g))
-
-			/*正则复习:
-			匹配或者检索(擅长模糊范围的)字符串的规则.
-			方法:
-			正则.test(),    返回布尔值
-			str.search(正则),    返回的是索引值或者是-1
-			str.match(正则),      返回数组或者是空
-			
-			str.replace(被替换的字符||正则,替换字符||function);
-			
-			function($0,$1,$2){			}
-			$0 当前匹配的字符.
-			$1没有子项:index   有子项就是子项
-			$2 没有子项:整个字符串     有第二个子项就第二个子项
-
-			()
-			子项  \1  重复第一个子项
-			提权
-			
-			[] A-Za-z 0-9 \u4e00--\u9fa5
-			[^排除]
-			
-			{n,m}n到m
-			{n,}最小N个  最大无限
-			
-			+ 匹配多个
-			?可以没有 最多1个
-			* 最小0个  最多无限
-			
-			修饰符:
-			i	忽略大小写
-			g	全局*/
-			.    任意符
-			
-			var strz = 'ascagsclkfdglskdcjfgb'
-			 console.log(strz.match(/a.+c/g));
-			 
-			 \s
-			 \S
-			 \w
-			 \W
-			 \d
-			 \D
-			 \b
-			 \B
-			 
-			 ^ 开头
-			 $ 结尾
-		</script>
-	</body>
-
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字搬运工</title>
+<style type="text/css">
+	#box{
+		width:700px;
+		border: 5px solid #ccc;
+		margin: 0 auto;
+		font-size: 12px;
+	}
+	#box:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	textarea,p{
+		width: 280px;
+		height: 200px;
+		border: 1px dotted black;
+		resize: none;
+		margin: 10px;
+		float: left;
+	}
+	#box div{
+		float: left;
+		width: 90px;
+	}
+	a,span{
+		text-decoration: none;
+		display: block;
+		line-height: 40px;
+		width:90px;
+		background-color: #F76300;
+		color: white;
+		margin-top: 10px;
+		text-align: center;
+	}
+	a:hover{
+		background-color: #C65218;
+	}
+	span{
+		background-color: white;
+		color:black;
+		font-weight: bold;
+	}
+	p{
+		float: right;
+		background-color: #63EFF7;
+	}
+	ul{
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+	}
+	li{
+		width: 9px;
+		height: 9px;
+		list-style-type: none;
+		margin: 0 1px;
+		background-color:#FF6600;
+		float: left;
+	}
+	.active{
+		background-color: red;
+	}
+</style>
+</head>
+<body>
+	<div id="box">
+		<textarea>妙味课堂是一支充满温馨并且极富人情味的IT培训团队；2010-2011年，妙味深度关注WEB前端开发领域，为此精心研发出一套灵活而充满趣味的JavaScript课程。2011-2013年，妙味精准研发出最新HTML5\CSS3课程，并推出远程培训课程方案，尝试将线下优良的培训模式移植到远程网络培训中，希望尽最大努力，将一种快乐愉悦的授课体验、结合HTML\CSS\JS知识点，精准传递给妙味课堂的每一位学员。</textarea>
+		<div>
+			<a href="javascript:;">把文字右移</a>
+			<span>0/0</span>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<p></p>
+	</div>
+</body>
 </html>
+<script type="text/javascript">
+alert(1)
+	console.log(1)
+	var txt = document.getElementsByTagName('textarea')[0];
+	var a = document.getElementsByTagName('a')[0];
+	console.log(1)
+	//字数
+	var span = document.getElementsByTagName('span')[0];
+	var p = document.getElementsByTagName('p')[0];
+	//定时器
+	var timer = null;
+	//当点击转换时
+	a.onclick = function(){
+		//首先清空右边
+		p.innerHTML = '';
+		console.log(p.innerHTML )
+		//定义左边的内容
+		var val = txt.value;
+		//定义左边内容的长度
+		var len = val.length;
+		//console.log(val)
+		//开启定时器
+		timer = setInterval(function(){
+			//让p的内容 += 左边的第一个字
+			p.innerHTML+=val[0];
+			//把左边的内容 从第2位开始截取
+			val = val.substr(1);
+			//然后赋值给左边
+			txt.value = val;
+			//文字字数 = 总长度 - 正在变化的长度  / 总长度
+			span.innerHTML = len-val.length+'/'+len;
+			if(!val.length){
+				clearInterval(timer);
+			}
+			//console.log(val.length)
+		},20)
+	}
+	
+//script>
