@@ -253,13 +253,7 @@
 	timer = setInterval(autoPlay,1000);
 	
 	
-	//移入父级关闭定时器
-	box.onmouseover = function(){
-		clearInterval(timer);
-	}
 	
-	
-	//移出父级重新打开定时器
 	box.onmouseout = function(){
 		timer = setInterval(autoPlay,1000);
 	}
