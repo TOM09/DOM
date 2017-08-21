@@ -101,6 +101,24 @@
 			]
 		},
 		{
+			title:'暖色调',
+			info:[
+				['img/img1.gif','暖1'],
+				['img/img2.gif','暖2'],
+				['img/img3.gif','暖3'],
+				['img/img4.gif','暖4']
+			]
+		},
+		{
+			title:'暖色调',
+			info:[
+				['img/img1.gif','暖1'],
+				['img/img2.gif','暖2'],
+				['img/img3.gif','暖3'],
+				['img/img4.gif','暖4']
+			]
+		},
+		{
 			title:'金色夕阳',
 			info:[
 				['img/img5.gif','金1'],
@@ -124,27 +142,19 @@
 			]
 		}
 	];
-	//生成结构
 	var box = document.getElementById('box');
 	var str = '';
-	//左侧结构
 	str = '<ul>';
 	for(var i=0;i<data.length;i++){
-		//提前设定了li里面内容的样式  包括行高  如果没有文字  便没有样式
 		str +='<li>'+data[i].title+'</li>';
 	}
 	str += '</ul>';
 	
-	//右侧结构
 	for(var i=0;i<data.length;i++){
-		//右边加入div包着的 img和底部ul
-		//data[i].info[0][0]表示每个数据中的第一个info里的第一个图片   默认显示.
 		str += '<div>'+
 			'<img src="'+data[i].info[0][0]+'" alt="" />'+
 			'<ul>';
-			//循环了每个data里的info的长度  
 		for(var j=0;j<data[i].info.length;j++){
-			//取得_数据里的info里的第二项_文字
 			str += '<li style="width:'+700/data[i].info.length+'px;">'+data[i].info[j][1]+'</li>';
 		}
 		str += '</ul></div>';
@@ -153,27 +163,18 @@
 	
 	
 	
-	//获得左边竖排的li
 	var leftLis = box.getElementsByTagName('ul')[0].getElementsByTagName('li');
-//	console.log(leftLis)
-	//获取右边每个选项的div
 	var divs = box.getElementsByTagName('div');
 	console.log(divs)
-	//初始化第一个li添加背景色
 	leftLis[0].className = 'active';
-	//初始让divs的第一个显示
 	divs[0].style.display = 'block';
-	//控制左侧
 	var num1 = 0;
-	//控制右侧
 	var num2 = 0;
 	var timer = null;
 	
 	
-	//左侧LI点击切换
 	for(var i=0;i<leftLis.length;i++){
 		leftLis[i].index = i;
-		//当点击左边的时候  调用leftTab()和rightTab();
 		leftLis[i].onclick = function(){
 			num1 = this.index;
 			num2 = 0;
@@ -183,7 +184,6 @@
 		fn(i);
 	}
 	
-	//右侧底部点击切换
 	function fn(n){
 		var lis = divs[n].getElementsByTagName('li');
 		var img = divs[n].getElementsByTagName('img')[0];
@@ -192,54 +192,39 @@
 			lis[i].index = i;
 			//当点击div下面的li时
 			lis[i].onclick = function(){
-				//设定一个num2为当前的索引
 				num2 = this.index;
-				//调用右边函数
 				rightTab();
 			}
 		}
 	}
 	
 	
-	//左侧切换函数
 	function leftTab(){
-//		循环所有的li 清空所有li和div的样式
 		for(var i=0;i<leftLis.length;i++){
 			leftLis[i].className = '';
 			divs[i].style.display = '';
 		}
-		//给当前点击的那个加上class名
 		leftLis[num1].className = 'active';
 		divs[num1].style.display = 'block';
 	}
 	
 	
-	//右侧切换
 	function rightTab(){
 		var lis = divs[num1].getElementsByTagName('li');
 		var img = divs[num1].getElementsByTagName('img')[0];
-		//清除样式
 		for(var i=0;i<lis.length;i++){
 			lis[i].className = '';
 		}
-		//添加样式
 		lis[num2].className = 'active';
-		//图片的src = 数据的info里面的src
 		img.src = data[num1].info[num2][0];
 	}
 	
 	
-	//自动切换函数
 	function autoPlay(){
-		//自定义的数字每次自加+1
 		num2++;
-		//定义len  data左边数据的信息的长度
 		var len = data[num1].info.length;
-		//如果num2 等于左边数据某个信息的长度  比如第一个信息里length是 4    第二个信息length是2      这时就让num1 自加1 
-		//相当于 当循环完这个的时候   就让左边的li索引 +1
 		if(num2==len){
 			num1++;
-			//如果左边的索引比数据长度长 了   就让它恢复到0   num也恢复到0   先调用左边函数  再调用右边函数
 			if(num1>data.length-1){
 				num1 = 0;
 			}
@@ -249,7 +234,6 @@
 		rightTab();
 	}
 	
-	//全局开启定时器，页面一打开就自动切换
 	timer = setInterval(autoPlay,1000);
 	
 	
