@@ -1,129 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>文字搬运工</title>
-<style type="text/css">
-	#box{
-		width:700px;
-		border: 5px solid #ccc;
-		margin: 0 auto;
-		font-size: 12px;
-	}
-	#box:after{
-		content: '';
-		display: block;
-		clear: both;
-	}
-	textarea,p{
-		width: 280px;
-		height: 200px;
-		border: 1px dotted black;
-		resize: none;
-		margin: 10px;
-		float: left;
-	}
-	#box div{
-		float: left;
-		width: 90px;
-	}
-	a,span{
-		text-decoration: none;
-		display: block;
-		line-height: 40px;
-		width:90px;
-		background-color: #F76300;
-		color: white;
-		margin-top: 10px;
-		text-align: center;
-	}
-	a:hover{
-		background-color: #C65218;
-	}
-	span{
-		background-color: white;
-		color:black;
-		font-weight: bold;
-	}
-	p{
-		float: right;
-		background-color: #63EFF7;
-	}
-	ul{
-		margin: 0;
-		padding: 0;
-		opacity: 0;
-	}
-	li{
-		width: 9px;
-		height: 9px;
-		list-style-type: none;
-		margin: 0 1px;
-		background-color:#FF6600;
-		float: left;
-	}
-	.active{
-		background-color: red;
-	}
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <hello></hello>
+    <pp1 num="1"></pp1>
+    
+  </div>
+</template>
+
+<script>
+import Hello from './components/Hello'
+import pp1 from './components/pp1'
+
+export default {
+  name: 'app',
+  components: {
+    Hello,
+    pp1
+  },
+   data(){
+    return {
+      msg: '你好'
+    }
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
-</head>
-<body>
-	<div id="box">
-		<textarea>妙味课堂是一支充满温馨并且极富人情味的IT培训团队；2010-2011年，妙味深度关注WEB前端开发领域，为此精心研发出一套灵活而充满趣味的JavaScript课程。2011-2013年，妙味精准研发出最新HTML5\CSS3课程，并推出远程培训课程方案，尝试将线下优良的培训模式移植到远程网络培训中，希望尽最大努力，将一种快乐愉悦的授课体验、结合HTML\CSS\JS知识点，精准传递给妙味课堂的每一位学员。</textarea>
-		<div>
-			<a href="javascript:;">把文字右移</a>
-			<span>0/0</span>
-			<ul>
-				<li class="active"></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
-		<p></p>
-	</div>
-</body>
-</html>
-<script type="text/javascript">
-alert(1)
-	console.log(1)
-	var txt = document.getElementsByTagName('textarea')[0];
-	var a = document.getElementsByTagName('a')[0];
-	console.log(1)
-	//字数
-	var span = document.getElementsByTagName('span')[0];
-	var p = document.getElementsByTagName('p')[0];
-	//定时器
-	var timer = null;
-	//当点击转换时
-	a.onclick = function(){
-		//首先清空右边
-		p.innerHTML = '';
-		console.log(p.innerHTML )
-		//定义左边的内容
-		var val = txt.value;
-		//定义左边内容的长度
-		var len = val.length;
-		//console.log(val)
-		//开启定时器
-		timer = setInterval(function(){
-			//让p的内容 += 左边的第一个字
-			p.innerHTML+=val[0];
-			//把左边的内容 从第2位开始截取
-			val = val.substr(1);
-			//然后赋值给左边
-			txt.value = val;
-			//文字字数 = 总长度 - 正在变化的长度  / 总长度
-			span.innerHTML = len-val.length+'/'+len;
-			if(!val.length){
-				clearInterval(timer);
-			}
-			//console.log(val.length)
-		},20)
-	}
-	
-//script>
