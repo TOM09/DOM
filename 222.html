@@ -29,28 +29,19 @@
 					box.style.left = box.offsetLeft - 10 + "px";
 					},10)
 				}
-				if(ev.keyCode == 38){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.top = box.offsetTop - 10 + "px";
-					},10)
-				}
-				if(ev.keyCode == 39){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.left = box.offsetLeft + 10 + "px";
-					},10)
-				}
 				if(ev.keyCode == 40){
 				clearInterval(timer); 
 					
 					timer = setInterval(function(){
 					box.style.top = box.offsetTop + 10 + "px";
 					},10)
+				},if(ev.keyCode == 40){
+				clearInterval(timer); 
+					
+					timer = setInterval(function(){
+					box.style.top = box.offsetTop + 10 + "px";
+					},10)
 				}
-				
 			}
 			document.onkeyup = function(ev){
 				clearInterval(timer); 

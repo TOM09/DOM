@@ -22,13 +22,99 @@
 			var box = document.getElementById("box");
 			var timer;
 			document.onkeydown = function(ev){
-				if(ev.keyCode == 37){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.left = box.offsetLeft - 10 + "px";
-					},10)
-				}
+				<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="text" name="ipt1" id="txt" value="" />
+		<input type="button" name="ipt1" id="ipt" value="验证" />
+		
+		<script>
+		//11-108
+		var ipt = document.getElementById("ipt")
+		ipt.onclick = function(){
+		var txt = document.getElementById("txt").value;
+			if(/^1[1-9]$|^[2-9][0-9]$|^10[0-8]$/.test(txt)){
+				alert("成功")
+			}else{
+				alert("失败!")
+			}
+			console.log(txt)
+		}
+//		var str = "a1ca2ca3ca555c"
+//		str.replace(/a(((\d))+)c/g,function($0,$1,$2){
+//			console.log($2)
+//		})
+//		
+//		
+//		
+//		var str2 = "2017-7-17"
+//		str.replace(/\d+年\d+月\g+\d+日/,function($0){
+//			console.log($0)
+//		})
+//		
+		
+	</script>
+	</body>
+	
+
+</html><!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="text" name="ipt1" id="txt" value="" />
+		<input type="button" name="ipt1" id="ipt" value="验证" />
+		
+		<script>
+		//11-108
+		var ipt = document.getElementById("ipt")
+		ipt.onclick = function(){
+		var txt = document.getElementById("txt").value;
+			if(/^1[1-9]$|^[2-9][0-9]$|^10[0-8]$/.test(txt)){
+				alert("成功")
+			}else{
+				alert("失败!")
+			}
+			console.log(txt)
+		},
+		var ipt = document.getElementById("ipt")
+		ipt.onclick = function(){
+		var txt = document.getElementById("txt").value;
+			if(/^1[1-9]$|^[2-9][0-9]$|^10[0-8]$/.test(txt)){
+				alert("成功")
+			}else{
+				alert("失败!")
+			}
+			console.log(txt)
+		}
+//		var str = "a1ca2ca3ca555c"
+//		str.replace(/a(((\d))+)c/g,function($0,$1,$2){
+//			console.log($2)
+//		})
+//		
+//		
+//		
+//		var str2 = "2017-7-17"
+//		str.replace(/\d+年\d+月\g+\d+日/,function($0){
+//			console.log($0)
+//		})
+//		
+		
+	</script>
+	</body>
+	
+
+</html>
 				if(ev.keyCode == 38){
 				clearInterval(timer); 
 					
@@ -36,26 +122,5 @@
 					box.style.top = box.offsetTop - 10 + "px";
 					},10)
 				}
-				if(ev.keyCode == 39){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.left = box.offsetLeft + 10 + "px";
-					},10)
-				}
-				if(ev.keyCode == 40){
-				clearInterval(timer); 
-					
-					timer = setInterval(function(){
-					box.style.top = box.offsetTop + 10 + "px";
-					},10)
-				}
-				
-			}
-			document.onkeyup = function(ev){
-				clearInterval(timer); 
-			}
-			
-		}
 	</script>
 </html>

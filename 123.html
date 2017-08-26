@@ -1,47 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        ul {
-            width: 300px;
-            list-style: none;
-        }
-        li {
-            margin: 10px 0;
-            height: 30px;
-            background: #CCCCCC;
-        }
-    </style>
-   
-</head>
-<body>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-     <script>
-		var list = document.getElementsByTagName("li");
-		for (var i = 0; i < list.length; i++) {
-			list[i].onmouseover = function(){
-				for (var i = 0; i < list.length; i++) {
-					list[i].style.background = "";
-				}
-				this.style.background = "red";
-				if(this.nextElementSibling){
-					this.nextElementSibling.style.background = "yellow";
-				}
-				if(this.previousElementSibling){
-					this.previousElementSibling.style.background = "yellow";
-				}
-			}
+让IE兼容forEach方法
+
+既然IE的Array 没哟forEach方法， 我们就给它手动添加这个原型方法。
+//Array.forEach implementation for IE support..
+//https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach
+if (!Array.prototype.forEach) {
+	Array.prototype.forEach = function(callback, thisArg) {
+		var T, k;
+		if (this == null) {
+			throw new TypeError(" this is null or not defined");
 		}
-    </script>
-</body>
-</html>
+		var O = Object(this);
+		var len = O.length >>> 0; // Hack to convert O.length to a UInt32
+		if ({}.toString.call(callback) != "[object Function]") {
+			throw new TypeError(callback + " is not a function");
+		}
+		if (thisArg) {
+			T = thisArg;
+		}
+		k = 0;
+		while (k < len) {
+			var kValue;
+			if (k in O) {
+				kValue = O[k];
+				callback.call(T, kValue, k, O);
+			}
+			k++;
+		}
+	};
+}
