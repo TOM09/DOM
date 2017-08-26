@@ -1,1087 +1,136 @@
 <!DOCTYPE html>
 <html>
-
-	<head lang="en">
+	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
-			td {
-				text-align: center;
+			table{
+				border-collapse: collapse;
 			}
 		</style>
 	</head>
-
 	<body>
-		<form action="" name="form">
-			<p>
-				姓名:<input type="text" name="username" />
-			</p>
-			<p>
-				年龄:<input type="text" name="age" />
-			</p>
-			<p>
-				性别:
-				<select name="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</p>
-			<p>
-				<input type="button" value="添加" name="add" />
-			</p>
-		</form>
-		<input type="button" value="反选" class="btn">
-		<input type="button" value="批量删除" class="btn">
-		<table id="tab1" width="100%" border="1">
-
-			<thead>
-				<tr>
-					<th>
-						<input id="checkAll" type="checkbox" /> 全选
-					</th>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>年龄</th>
-					<th>性别</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--<tr>
-                <td>
-                    <input type="checkbox"/>
-                </td>
-                <td>1</td>
-                <td>周杰伦</td>
-                <td>37</td>
-                <td>男</td>
-                <td>
-                    <a href="javascript:;">上移</a> |
-                    <a href="javascript:;">下移</a> |
-                    <a href="javascript:;">删除</a>
-                </td>
-            </tr> -->
-			</tbody>
+		<table border="1" cellspacing="" cellpadding="" id="table">
+			
 		</table>
 		<script type="text/javascript">
-			var data = [{
-				id: 1,
-				name: '宋小宝',
-				age: 36,
-				sex: '男'
-			}, {
-				id: 2,
-				name: '郭德纲',
-				age: 43,
-				sex: '男'
-			}, {
-				id: 3,
-				name: '黄渤',
-				age: 28,
-				sex: '男'
-			}, {
-				id: 4,
-				name: '赵丽颖',
-				age: 25,
-				sex: '女'
-			}, {
-				id: 5,
-				name: '刘亦菲',
-				age: 22,
-				sex: '女'
-			}];
 			/*
-			 	1.渲染页面
-			 	2.上移下移删除
-			 	3.全选
-			 	4.反选
-			 	5.批量删除
-			 	6.添加数据
-			 	7.排序
+			 * 新建插入
+			 	createTHead()  表头
+			 	createTBody()  表身
+			 	createTFoot()  表尾
+			 	
+			 *  insertRow([pos])  创建行
+			 *  pos:插入到第几行前，num
+			 *  不写参数，默认插入到最后一位
+			 * 
+			 *  insertCell([pos])  创建列
+			 *  pos:插入到第几列前，num
+			 *  不写参数，默认插入到最后一位
+			 * 
+			 *  deleteRow(pos)  删除行
+			 *  deleteCell(pos)  删除列
+			 *  pos:删除第几个
 			 * */
-			//1.渲染页面
-			var tab1 = document.getElementById('tab1');
-			var tBody = tab1.tBodies[0];
-			var all = document.getElementById('checkAll');
-			var inps = tBody.getElementsByTagName('input');
-			console.log(inps)
-			var form = document.getElementsByTagName('form')[0];
-			var btns = document.getElementsByClassName('btn');
-			var sortId = tab1.tHead.rows[0].cells[1];
-			var sortAge = tab1.tHead.rows[0].cells[3];
-			//传入一条数据，生成一行
+			var table = document.getElementById('table');
+			table.createTHead();
+			table.createTBody();
+			table.createTFoot();
+//			table.deleteTFoot()
+//			table.deleteTHead()
+		var tr = table.tHead.insertRow();
+		tr.innerHTML = 1;
+//		table.tHead.insertRow(0);
+		table.tHead.insertRow();
+		tr.insertCell()
+		tr.insertCell(0)
+		tr.deleteCell(0)
+		
+		
+		
+		
+		var data = {1:2,3:4,5:6,7:8}
+		for(var i = 0; i < data.length; i++) {
 
-			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
-			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
-			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
-			//把a和| 放到结构中去
-			/* <!--<tr>
-			         <td>
-			             <a href="javascript:;">上移</a> |
-			             <a href="javascript:;">下移</a> |
-			             <a href="javascript:;">删除</a>
-			         </td>
-			     </tr> -->*/
-			 data.forEach(function(a){
-    				fn(a)
-    	
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
+			//创建行
+			var tr = tBody.insertRow();
+			//循环每个对象里的数值
+			for(var k in data[i]) {
+				//				console.log(a)
+				//创建列
+				var td = tr.insertCell();magnet:?xt=urn:btih:104CFC74C0CBCF96EA6210D0637A8684284FB6B1
+				//列的内容 = 对象的k值
+				td.innerHTML = data[i][k];
 			}
-			
-			
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
+		}
 		</script>
 	</body>
-
-</html><!DOCTYPE html>
+</html>
+<!DOCTYPE html>
 <html>
-
-	<head lang="en">
+	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
-			td {
-				text-align: center;
+			table{
+				border-collapse: collapse;
 			}
 		</style>
 	</head>
-
 	<body>
-		<form action="" name="form">
-			<p>
-				姓名:<input type="text" name="username" />
-			</p>
-			<p>
-				年龄:<input type="text" name="age" />
-			</p>
-			<p>
-				性别:
-				<select name="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</p>
-			<p>
-				<input type="button" value="添加" name="add" />
-			</p>
-		</form>
-		<input type="button" value="反选" class="btn">
-		<input type="button" value="批量删除" class="btn">
-		<table id="tab1" width="100%" border="1">
-
-			<thead>
-				<tr>
-					<th>
-						<input id="checkAll" type="checkbox" /> 全选
-					</th>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>年龄</th>
-					<th>性别</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--<tr>
-                <td>
-                    <input type="checkbox"/>
-                </td>
-                <td>1</td>
-                <td>周杰伦</td>
-                <td>37</td>
-                <td>男</td>
-                <td>
-                    <a href="javascript:;">上移</a> |
-                    <a href="javascript:;">下移</a> |
-                    <a href="javascript:;">删除</a>
-                </td>
-            </tr> -->
-			</tbody>
+		<table border="1" cellspacing="" cellpadding="" id="table">
+			
 		</table>
 		<script type="text/javascript">
-			var data = [{
-				id: 1,
-				name: '宋小宝',
-				age: 36,
-				sex: '男'
-			}, {
-				id: 2,
-				name: '郭德纲',
-				age: 43,
-				sex: '男'
-			}, {
-				id: 3,
-				name: '黄渤',
-				age: 28,
-				sex: '男'
-			}, {
-				id: 4,
-				name: '赵丽颖',
-				age: 25,
-				sex: '女'
-			}, {
-				id: 5,
-				name: '刘亦菲',
-				age: 22,
-				sex: '女'
-			}];
 			/*
-			 	1.渲染页面
-			 	2.上移下移删除
-			 	3.全选
-			 	4.反选
-			 	5.批量删除
-			 	6.添加数据
-			 	7.排序
+			 * 新建插入
+			 	createTHead()  表头
+			 	createTBody()  表身
+			 	createTFoot()  表尾
+			 	
+			 *  insertRow([pos])  创建行
+			 *  pos:插入到第几行前，num
+			 *  不写参数，默认插入到最后一位
+			 * 
+			 *  insertCell([pos])  创建列
+			 *  pos:插入到第几列前，num
+			 *  不写参数，默认插入到最后一位
+			 * 
+			 *  deleteRow(pos)  删除行
+			 *  deleteCell(pos)  删除列
+			 *  pos:删除第几个
 			 * */
-			//1.渲染页面
-			var tab1 = document.getElementById('tab1');
-			var tBody = tab1.tBodies[0];
-			var all = document.getElementById('checkAll');
-			var inps = tBody.getElementsByTagName('input');
-			console.log(inps)
-			var form = document.getElementsByTagName('form')[0];
-			var btns = document.getElementsByClassName('btn');
-			var sortId = tab1.tHead.rows[0].cells[1];
-			var sortAge = tab1.tHead.rows[0].cells[3];
-			//传入一条数据，生成一行
+			var table = document.getElementById('table');
+			table.createTHead();
+			table.createTBody();
+			table.createTFoot();
+//			table.deleteTFoot()
+//			table.deleteTHead()
+		var tr = table.tHead.insertRow();
+		tr.innerHTML = 1;
+//		table.tHead.insertRow(0);
+		table.tHead.insertRow();
+		tr.insertCell()
+		tr.insertCell(0)
+		tr.deleteCell(0)
+		
+		
+		
+		
+		var data = {1:2,3:4,5:6,7:8}
+		for(var i = 0; i < data.length; i++) {
 
-			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
-			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
-			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
-			//把a和| 放到结构中去
-			/* <!--<tr>
-			         <td>
-			             <a href="javascript:;">上移</a> |
-			             <a href="javascript:;">下移</a> |
-			             <a href="javascript:;">删除</a>
-			         </td>
-			     </tr> -->*/
-			 data.forEach(function(a){
-    				fn(a)
-    	
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
+			//创建行
+			var tr = tBody.insertRow();
+			//循环每个对象里的数值
+			for(var k in data[i]) {
+				//				console.log(a)
+				//创建列
+				var td = tr.insertCell();magnet:?xt=urn:btih:104CFC74C0CBCF96EA6210D0637A8684284FB6B1
+				//列的内容 = 对象的k值
+				td.innerHTML = data[i][k];
 			}
-			
-			
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
+		}
 		</script>
 	</body>
-
-</html><!DOCTYPE html>
-<html>
-
-	<head lang="en">
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			td {
-				text-align: center;
-			}
-		</style>
-	</head>
-
-	<body>
-		<form action="" name="form">
-			<p>
-				姓名:<input type="text" name="username" />
-			</p>
-			<p>
-				年龄:<input type="text" name="age" />
-			</p>
-			<p>
-				性别:
-				<select name="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</p>
-			<p>
-				<input type="button" value="添加" name="add" />
-			</p>
-		</form>
-		<input type="button" value="反选" class="btn">
-		<input type="button" value="批量删除" class="btn">
-		<table id="tab1" width="100%" border="1">
-
-			<thead>
-				<tr>
-					<th>
-						<input id="checkAll" type="checkbox" /> 全选
-					</th>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>年龄</th>
-					<th>性别</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--<tr>
-                <td>
-                    <input type="checkbox"/>
-                </td>
-                <td>1</td>
-                <td>周杰伦</td>
-                <td>37</td>
-                <td>男</td>
-                <td>
-                    <a href="javascript:;">上移</a> |
-                    <a href="javascript:;">下移</a> |
-                    <a href="javascript:;">删除</a>
-                </td>
-            </tr> -->
-			</tbody>
-		</table>
-		<script type="text/javascript">
-			var data = [{
-				id: 1,
-				name: '宋小宝',
-				age: 36,
-				sex: '男'
-			}, {
-				id: 2,
-				name: '郭德纲',
-				age: 43,
-				sex: '男'
-			}, {
-				id: 3,
-				name: '黄渤',
-				age: 28,
-				sex: '男'
-			}, {
-				id: 4,
-				name: '赵丽颖',
-				age: 25,
-				sex: '女'
-			}, {
-				id: 5,
-				name: '刘亦菲',
-				age: 22,
-				sex: '女'
-			}];
-			/*
-			 	1.渲染页面
-			 	2.上移下移删除
-			 	3.全选
-			 	4.反选
-			 	5.批量删除
-			 	6.添加数据
-			 	7.排序
-			 * */
-			//1.渲染页面
-			var tab1 = document.getElementById('tab1');
-			var tBody = tab1.tBodies[0];
-			var all = document.getElementById('checkAll');
-			var inps = tBody.getElementsByTagName('input');
-			console.log(inps)
-			var form = document.getElementsByTagName('form')[0];
-			var btns = document.getElementsByClassName('btn');
-			var sortId = tab1.tHead.rows[0].cells[1];
-			var sortAge = tab1.tHead.rows[0].cells[3];
-			//传入一条数据，生成一行
-
-			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
-			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
-			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
-			//把a和| 放到结构中去
-			/* <!--<tr>
-			         <td>
-			             <a href="javascript:;">上移</a> |
-			             <a href="javascript:;">下移</a> |
-			             <a href="javascript:;">删除</a>
-			         </td>
-			     </tr> -->*/
-			 data.forEach(function(a){
-    				fn(a)
-    	
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-			
-			
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-		</script>
-	</body>
-
-</html><!DOCTYPE html>
-<html>
-
-	<head lang="en">
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			td {
-				text-align: center;
-			}
-		</style>
-	</head>
-
-	<body>
-		<form action="" name="form">
-			<p>
-				姓名:<input type="text" name="username" />
-			</p>
-			<p>
-				年龄:<input type="text" name="age" />
-			</p>
-			<p>
-				性别:
-				<select name="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</p>
-			<p>
-				<input type="button" value="添加" name="add" />
-			</p>
-		</form>
-		<input type="button" value="反选" class="btn">
-		<input type="button" value="批量删除" class="btn">
-		<table id="tab1" width="100%" border="1">
-
-			<thead>
-				<tr>
-					<th>
-						<input id="checkAll" type="checkbox" /> 全选
-					</th>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>年龄</th>
-					<th>性别</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--<tr>
-                <td>
-                    <input type="checkbox"/>
-                </td>
-                <td>1</td>
-                <td>周杰伦</td>
-                <td>37</td>
-                <td>男</td>
-                <td>
-                    <a href="javascript:;">上移</a> |
-                    <a href="javascript:;">下移</a> |
-                    <a href="javascript:;">删除</a>
-                </td>
-            </tr> -->
-			</tbody>
-		</table>
-		<script type="text/javascript">
-			var data = [{
-				id: 1,
-				name: '宋小宝',
-				age: 36,
-				sex: '男'
-			}, {
-				id: 2,
-				name: '郭德纲',
-				age: 43,
-				sex: '男'
-			}, {
-				id: 3,
-				name: '黄渤',
-				age: 28,
-				sex: '男'
-			}, {
-				id: 4,
-				name: '赵丽颖',
-				age: 25,
-				sex: '女'
-			}, {
-				id: 5,
-				name: '刘亦菲',
-				age: 22,
-				sex: '女'
-			}];
-			/*
-			 	1.渲染页面
-			 	2.上移下移删除
-			 	3.全选
-			 	4.反选
-			 	5.批量删除
-			 	6.添加数据
-			 	7.排序
-			 * */
-			//1.渲染页面
-			var tab1 = document.getElementById('tab1');
-			var tBody = tab1.tBodies[0];
-			var all = document.getElementById('checkAll');
-			var inps = tBody.getElementsByTagName('input');
-			console.log(inps)
-			var form = document.getElementsByTagName('form')[0];
-			var btns = document.getElementsByClassName('btn');
-			var sortId = tab1.tHead.rows[0].cells[1];
-			var sortAge = tab1.tHead.rows[0].cells[3];
-			//传入一条数据，生成一行
-
-			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
-			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
-			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
-			//把a和| 放到结构中去
-			/* <!--<tr>
-			         <td>
-			             <a href="javascript:;">上移</a> |
-			             <a href="javascript:;">下移</a> |
-			             <a href="javascript:;">删除</a>
-			         </td>
-			     </tr> -->*/
-			 data.forEach(function(a){
-    				fn(a)
-    	
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-			
-			
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-		</script>
-	</body>
-
-</html><!DOCTYPE html>
-<html>
-
-	<head lang="en">
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			td {
-				text-align: center;
-			}
-		</style>
-	</head>
-
-	<body>
-		<form action="" name="form">
-			<p>
-				姓名:<input type="text" name="username" />
-			</p>
-			<p>
-				年龄:<input type="text" name="age" />
-			</p>
-			<p>
-				性别:
-				<select name="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</p>
-			<p>
-				<input type="button" value="添加" name="add" />
-			</p>
-		</form>
-		<input type="button" value="反选" class="btn">
-		<input type="button" value="批量删除" class="btn">
-		<table id="tab1" width="100%" border="1">
-
-			<thead>
-				<tr>
-					<th>
-						<input id="checkAll" type="checkbox" /> 全选
-					</th>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>年龄</th>
-					<th>性别</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--<tr>
-                <td>
-                    <input type="checkbox"/>
-                </td>
-                <td>1</td>
-                <td>周杰伦</td>
-                <td>37</td>
-                <td>男</td>
-                <td>
-                    <a href="javascript:;">上移</a> |
-                    <a href="javascript:;">下移</a> |
-                    <a href="javascript:;">删除</a>
-                </td>
-            </tr> -->
-			</tbody>
-		</table>
-		<script type="text/javascript">
-			var data = [{
-				id: 1,
-				name: '宋小宝',
-				age: 36,
-				sex: '男'
-			}, {
-				id: 2,
-				name: '郭德纲',
-				age: 43,
-				sex: '男'
-			}, {
-				id: 3,
-				name: '黄渤',
-				age: 28,
-				sex: '男'
-			}, {
-				id: 4,
-				name: '赵丽颖',
-				age: 25,
-				sex: '女'
-			}, {
-				id: 5,
-				name: '刘亦菲',
-				age: 22,
-				sex: '女'
-			}];
-			/*
-			 	1.渲染页面
-			 	2.上移下移删除
-			 	3.全选
-			 	4.反选
-			 	5.批量删除
-			 	6.添加数据
-			 	7.排序
-			 * */
-			//1.渲染页面
-			var tab1 = document.getElementById('tab1');
-			var tBody = tab1.tBodies[0];
-			var all = document.getElementById('checkAll');
-			var inps = tBody.getElementsByTagName('input');
-			console.log(inps)
-			var form = document.getElementsByTagName('form')[0];
-			var btns = document.getElementsByClassName('btn');
-			var sortId = tab1.tHead.rows[0].cells[1];
-			var sortAge = tab1.tHead.rows[0].cells[3];
-			//传入一条数据，生成一行
-
-			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
-			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
-			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
-			//把a和| 放到结构中去
-			/* <!--<tr>
-			         <td>
-			             <a href="javascript:;">上移</a> |
-			             <a href="javascript:;">下移</a> |
-			             <a href="javascript:;">删除</a>
-			         </td>
-			     </tr> -->*/
-			 data.forEach(function(a){
-    				fn(a)
-    	
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-			
-			
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-		</script>
-	</body>
-
-</html><!DOCTYPE html>
-<html>
-
-	<head lang="en">
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			td {
-				text-align: center;
-			}
-		</style>
-	</head>
-
-	<body>
-		<form action="" name="form">
-			<p>
-				姓名:<input type="text" name="username" />
-			</p>
-			<p>
-				年龄:<input type="text" name="age" />
-			</p>
-			<p>
-				性别:
-				<select name="sex">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</p>
-			<p>
-				<input type="button" value="添加" name="add" />
-			</p>
-		</form>
-		<input type="button" value="反选" class="btn">
-		<input type="button" value="批量删除" class="btn">
-		<table id="tab1" width="100%" border="1">
-
-			<thead>
-				<tr>
-					<th>
-						<input id="checkAll" type="checkbox" /> 全选
-					</th>
-					<th>ID</th>
-					<th>姓名</th>
-					<th>年龄</th>
-					<th>性别</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--<tr>
-                <td>
-                    <input type="checkbox"/>
-                </td>
-                <td>1</td>
-                <td>周杰伦</td>
-                <td>37</td>
-                <td>男</td>
-                <td>
-                    <a href="javascript:;">上移</a> |
-                    <a href="javascript:;">下移</a> |
-                    <a href="javascript:;">删除</a>
-                </td>
-            </tr> -->
-			</tbody>
-		</table>
-		<script type="text/javascript">
-			var data = [{
-				id: 1,
-				name: '宋小宝',
-				age: 36,
-				sex: '男'
-			}, {
-				id: 2,
-				name: '郭德纲',
-				age: 43,
-				sex: '男'
-			}, {
-				id: 3,
-				name: '黄渤',
-				age: 28,
-				sex: '男'
-			}, {
-				id: 4,
-				name: '赵丽颖',
-				age: 25,
-				sex: '女'
-			}, {
-				id: 5,
-				name: '刘亦菲',
-				age: 22,
-				sex: '女'
-			}];
-			/*
-			 	1.渲染页面
-			 	2.上移下移删除
-			 	3.全选
-			 	4.反选
-			 	5.批量删除
-			 	6.添加数据
-			 	7.排序
-			 * */
-			//1.渲染页面
-			var tab1 = document.getElementById('tab1');
-			var tBody = tab1.tBodies[0];
-			var all = document.getElementById('checkAll');
-			var inps = tBody.getElementsByTagName('input');
-			console.log(inps)
-			var form = document.getElementsByTagName('form')[0];
-			var btns = document.getElementsByClassName('btn');
-			var sortId = tab1.tHead.rows[0].cells[1];
-			var sortAge = tab1.tHead.rows[0].cells[3];
-			//传入一条数据，生成一行
-
-			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
-			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
-			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
-			//把a和| 放到结构中去
-			/* <!--<tr>
-			         <td>
-			             <a href="javascript:;">上移</a> |
-			             <a href="javascript:;">下移</a> |
-			             <a href="javascript:;">删除</a>
-			         </td>
-			     </tr> -->*/
-			 data.forEach(function(a){
-    				fn(a)
-    	
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-			
-			
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
- 			 })
-			function fn(dt){
-				var tr = tBody.insertRow();
-				tr.innerHTML = `<td>
-					<input type="checkbox"/>
-                	</td>
-					<td>${dt.id}</td>
-        			<td>${dt.name}</td>
-        			<td>${dt.age}</td>
-        			<td>${dt.sex}</td>`
-      				 
-			}
-		</script>
-	</body>
-
 </html>
