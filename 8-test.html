@@ -1,60 +1,328 @@
-import React, {Component} from "react";
-/*
- react中的表单:
- 	受限与非受限
- 	
- 	受限:
- 		只要是表单元素加了默认值为受限,默认值是根据状态来的
- 		只要状态不改,里面的值就不会变
- 	
- */
-class inputs extends Component{
-	constructor(){
-		super();
-		this.state = {
-			val:'miaov'
-		}
-	}
-	
-	changeVa = (ev)=>{
-		this.setState({
-			val:ev.target.value
-		})
-	}
-	
-	class inputs extends Component{
-	constructor(){
-		super();
-		this.state = {
-			val:'miaov'
-		}
-	}
-	
-	changeVa = (ev)=>{
-		this.setState({
-			val:ev.target.value
-		})
-	}
-	
-	
-	render(){
-		return(
-			<div>
-				<input type = "text" 
-				value = {this.state.val}
-				onChange = {this.changeVa}
-				/>
-				<span>{this.state.val}</span>
-				
-				<select onChange = "default">
-					<option>北京</option>
-					<option>上海</option>
-					<option>丹东</option>
-				</select> 
-				
-			</div>
-		)
-	}
-}
+<!DOCTYPE html>
+<html>
 
-export default inputs;
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			td {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="" name="form">
+			<p>
+				姓名:<input type="text" name="username" />
+			</p>
+			<p>
+				年龄:<input type="text" name="age" />
+			</p>
+			<p>
+				性别:
+				<select name="sex">
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+			</p>
+			<p>
+				<input type="button" value="添加" name="add" />
+			</p>
+		</form>
+		<input type="button" value="反选" class="btn">
+		<input type="button" value="批量删除" class="btn">
+		<table id="tab1" width="100%" border="1">
+
+			<thead>
+				<tr>
+					<th>
+						<input id="checkAll" type="checkbox" /> 全选
+					</th>
+					<th>ID</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<!--<tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>1</td>
+                <td>周杰伦</td>
+                <td>37</td>
+                <td>男</td>
+                <td>
+                    <a href="javascript:;">上移</a> |
+                    <a href="javascript:;">下移</a> |
+                    <a href="javascript:;">删除</a>
+                </td>
+            </tr> -->
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var data = [{
+				id: 1,
+				name: '宋小宝',
+				age: 36,
+				sex: '男'
+			}, {
+				id: 2,
+				name: '郭德纲',
+				age: 43,
+				sex: '男'
+			}, {
+				id: 3,
+				name: '黄渤',
+				age: 28,
+				sex: '男'
+			}, {
+				id: 4,
+				name: '赵丽颖',
+				age: 25,
+				sex: '女'
+			}, {
+				id: 5,
+				name: '刘亦菲',
+				age: 22,
+				sex: '女'
+			}];
+			/*
+			 	1.渲染页面
+			 	2.上移下移删除
+			 	3.全选
+			 	4.反选
+			 	5.批量删除
+			 	6.添加数据
+			 	7.排序
+			 * */
+			//1.渲染页面
+			var tab1 = document.getElementById('tab1');
+			var tBody = tab1.tBodies[0];
+			var all = document.getElementById('checkAll');
+			var inps = tBody.getElementsByTagName('input');
+
+			var form = document.getElementsByTagName('form')[0];
+			var btns = document.getElementsByClassName('btn');
+			var sortId = tab1.tHead.rows[0].cells[1];
+			
+			var sortAge = tab1.tHead.rows[0].cells[3];
+			//传入一条数据，生成一行
+
+			//创建一个单元格,3个a标签,两条竖线,a标签去掉默认效果 分别添加内容为上下删,
+			//当点击上下的时候,如果有上或者下一个兄弟节点,就让这个和上或者下一个交换
+			//点击删除的时候.删除这一行,循环数据长度 如果数据的id = 数据第i项的id,就把这条数据从data中截取掉
+			//把a和| 放到结构中去
+			/* <!--<tr>
+			         <td>
+			             <a href="javascript:;">上移</a> |
+			             <a href="javascript:;">下移</a> |
+			             <a href="javascript:;">删除</a>
+			         </td>
+			     </tr> -->*/
+			data.forEach(function(a) {
+				fn(a)
+			})
+
+			function fn(dt) {
+				var tr = tBody.insertRow();
+				tr.innerHTML = `<td>
+					<input type="checkbox"/>
+                	</td>
+					<td>${dt.id}</td>
+        			<td>${dt.name}</td>
+        			<td>${dt.age}</td>
+        			<td>${dt.sex}</td>`
+				var insp = tr.getElementsByTagName('input')[0];
+				insp.onclick = function() {
+					checkBox();
+				}
+
+				var td = tr.insertCell();
+				var a1 = document.createElement("a");
+				var a2 = document.createElement("a");
+				var a3 = document.createElement("a");
+				var t1 = document.createTextNode(' | ');
+				var t2 = document.createTextNode(' | ');
+				a1.href = a2.href = a3.href = "javascript:;"
+
+				a1.innerHTML = "上移";
+				a2.innerHTML = "下移";
+				a3.innerHTML = "删除";
+
+				td.appendChild(a1);
+				td.appendChild(t1);
+				td.appendChild(a2);
+				td.appendChild(t2);
+				td.appendChild(a3);
+
+				a1.onclick = function() {
+					var prev = tr.previousElementSibling;
+					if(prev) {
+						tBody.insertBefore(tr, prev);
+					}
+				};
+				a2.onclick = function() {
+					var next = tr.nextElementSibling;
+					if(next) {
+						tBody.insertBefore(next, tr);
+					}
+				};
+				a3.onclick = function() {
+					tBody.removeChild(tr);
+					for(var i = 0; i < data.length; i++) {
+						if(dt.id == data[i].id) {
+							data.splice(i, 1);
+						}
+					}
+					checkBox()
+				};
+
+			}
+
+			//定义最大ID=0
+			//循环data的每一项,如果它的id>max.就让max等于id 返回max
+			//之后使用max前使之自加1
+			var maxNum = maxId(data);
+
+			function maxId(obj) {
+				var maxId = 0;
+				for(var i = 0; i < obj.length; i++) {
+					if(obj[i].id > maxId) {
+						maxId = obj[i].id;
+					}
+				}
+				return maxId;
+			}
+			//添加新数据 
+			//设定各项数据内容,装进一个对象内,push进数据,添加到结构,调用全选
+			form.add.onclick = function() {
+				var name = form.username.value;
+				var age = form.age.value;
+				var sex = form.sex.value;
+				var id = ++maxNum;
+				var j = {
+					id: id,
+					name: name,
+					age: age,
+					sex: sex
+				}
+				data.push(j);
+				fn(j);
+				checkBox(); //调用全选
+			}
+
+			//全选函数
+			//判断全选函数
+			//定义个m=0  循环所有选择按钮的长度,如果是被选中状态,就让m++
+			//如果m = 按钮长度了 就让全选按钮也被选中  否则是不被选中状态
+			//当点击全选的时候,循环所有选择按钮的长度,如果全选是被选中状态,就让所有的按钮被选中,否则不被选中
+
+			console.log(1)
+
+			function checkBox() {
+				console.log(1)
+				var m = 0;
+				for(var i = 0; i < inps.length; i++) {
+					if(inps[i].checked) {
+						m++;
+					}
+				};
+				if(m == inps.length) {
+					console.log(m)
+					all.checked = true;
+				} else {
+					all.checked = false;
+				}
+			}
+
+			//全选按钮
+			all.onclick = function() {
+					console.log(1)
+
+					for(var i = 0; i < inps.length; i++) {
+						if(this.checked) {
+							inps[i].checked = true;
+						} else {
+							inps[i].checked = false;
+						}
+					}
+				}
+				//反选按钮
+				//当点击反选按钮时,同上.查看所有状态,并改之,调用选中函数,查看是否全选.
+			btns[0].onclick = function() {
+				for(var i = 0; i < inps.length; i++) {
+					if(inps[i].checked) {
+						inps[i].checked = false;
+					} else {
+						inps[i].checked = true;
+					}
+				}
+				checkBox()
+			}
+
+			//批量删除
+			btns[1].onclick = function() {
+				//循环哪个勾选，删哪个
+				//删数据
+				//如果按钮的父级的下一个兄弟节点的内容 和 id 相等  截取掉
+				//表格体内删除掉 按钮的父级的父级
+				//i-- 让i一直等于原始数据  不-会少判断一位
+				for(var i = 0; i < inps.length; i++) {
+					if(inps[i].checked) {
+						for(var j = 0; j < data.length; j++) {
+							if(inps[i].parentNode.nextElementSibling.innerHTML = data[j].id) {
+								data.splice(j, 1);
+							}
+						}
+						tBody.removeChild(inps[i].parentNode.parentNode);
+						i --
+					}
+				}
+			}
+			
+			//id排序和年龄排序相同道理
+    //定义id的开关为真,当点击时,使表格体内容变为空  之后重新渲染
+    //然后把data中的数据重新排序a.b
+    //如果开关是真,就让id正排序  假就反排
+    //然后循环数据,重新渲染
+   	//把开关取反
+   	sortId.onOff = true;
+   	sortId.onclick =function(){
+   		tBody.innerHTML = "";
+   		data.sort(function(a,b){
+   			if(sortId.onOff){
+   				return a.id - b.id;
+   			}else{
+   				return b.id - a.id;
+   			}
+   		});
+   		data.forEach((e)=>{
+   			fn(e);
+   		})
+   		this.onOff = !this.onOff;
+   	}
+   	//年龄排序
+   	sortAge.onOff = true;
+   	sortAge.onclick =function(){
+   		tBody.innerHTML = "";
+   		data.sort(function(a,b){
+   			if(sortAge.onOff){
+   				return a.age - b.age;
+   			}else{
+   				return b.age - a.age;
+   			}
+   		});
+   		data.forEach((e)=>{
+   			fn(e);
+   		})
+   		this.onOff = !this.onOff;
+   	}
+		</script>
+	</body>
+
+</html>
