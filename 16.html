@@ -1,139 +1,96 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style type="text/css">
-			#box {
-				margin: 50px 400px;
-			}
-			#uls {
-				/*width: 200px;*/
-				margin-top: -10px;
-				height: 30px;
-				padding-left: 200px;
-				position: absolute;
-				top: 500px;
-				left: 300px;: 200px;*/
-				margin-top: -10px;
-				height: 30px;
-				padding-left: 200px;
-				position: absolute;
-				top: 500px;
-				left: 300px;: 200px;*/
-				margin-top: -10px;
-				height: 30px;
-				padding-left: 200px;
-				position: absolute;
-				top: 500px;
-				left: 300px;
-			}
-			
-			#uls li {
-				width: 20px;
-				height: 20px;
-				border: 1px solid red;
-				border-radius: 20px;
-				list-style: none;
-				float: left;
-				margin-left: 20px;
-				position: relative;
-			}
-			
-			li:hover {
-				cursor: pointer;
-			}
-			
-			#uls li img {
-				width: 100px;
-				height: 100px;
-				display: block;
-				position: absolute;
-				top: -100px;
-				left: -40px;
-				display: none;
-			}
-			
-			input {
-				width: 50px;
-				height: 30px;
-				position: absolute;
-				left: 10px;
-				top: 300px;
-			}
-			
-			input:nth-of-type(2) {
-				left: 300px;
-			}
-		</style>
 	</head>
-
 	<body>
-		<div id="box">
-			<img src="img/1.png" id="imgOne" />
-			<input type="button" value="上一个" />
-			<input type="button" value="下一个" />
-		</div>
-		<ul id="uls">
-			<li>
-				<img src="img/1.png"/>
-			</li>
-			<li><img src=""/></li>
-			<li><img src=""/></li>
-			<li><img src=""/></li>
-		</ul>
-
+		<input type="button" value="西部"/>
+		<input type="button" value="东部"/>
+		<p id="p"></p>
+		<ol id="list"></ol>
 		<script type="text/javascript">
-			var uls = document.getElementById("uls")
-			var lis = uls.getElementsByTagName("li");
-			var imgs = uls.getElementsByTagName("img");
-			var imgOne = document.getElementById("imgOne")
-			var arr = ["img/1.png", "img/2.png", "img/3.png", "img/4.png"]
-			console.log(lis);
-			//循环所有的li
-			for(var i = 0; i < lis.length; i++) {
-				//自定义属性
-				lis[i].index = i;
-				lis[i].onmouseover = function() {
-					//变换imgs的图片链接为arr[i]
-					imgs[this.index].src = arr[this.index];
-					//显示这个图片
-					imgs[this.index].style.display = "block";
+			var data = {
+				index:[
+				'west','east'
+				],
+				
+				west:[
+					{
+						name:'库里'
+					},
+					{
+						name:'哈登'
+					},
+					{
+						name:'伦纳德'
+					},
+					{
+						name:'保罗'
+					},
+					{
+						name:'加索尔'
+					}
+				],
+				east:[
+					{
+						name:'詹姆斯'
+					},
+					{
+						name:'欧文'
+					},
+					{
+						name:'乔治'
+					},
+					{
+						name:'韦德'
+					}
+				]
+			};
+			
+			//1,获取东西部 两个按钮   p显示标签 列表标签
+			//2,判断信息,如果有search,那么如果s=w 就让数据变为西部的  p标签变为西部  反之为东部
+			//3,如果没有s  就让数据默认为西部数据
+			//4.渲染页面
+			//空字符str  循环数据,空字符 += 每个姓名
+			//让list的内容 = 字符
+			//当点击西部时候,让search = w  东部的时候 = e
+			
+			var inpt = document.getElementsByTagName("input");
+				console.log(inpt)
+			
+			var p = document.getElementById("p");
+			var list = document.getElementById("list")
+			var s = location.search.substr(1).split("=")[1];
+			var Data = [];
+			
+			if(s){
+				if(s=='w'){
+					Data = data.west;
+					p.innerHTML = "西部";
+				}else{
+					Data = data.east;
+					p.innerHTML = "东部";
 				}
-				lis[i].onmouseleave = function() {
-					//隐藏图片
-					imgs[this.index].style.display = "";
-				}
-				lis[i].onclick = function(){
-					i = this.index
-					fn();
-				}
+			}else{
+				Data = data[data.index[0]];
+					p.innerHTML = "西部";
 			}
+			
+			//渲染页面
+			var str = "";
+			for (var i = 0; i < Data.length; i++) {
+				str += '<li>'+Data[i].name+'</li>';
+			}
+			list.innerHTML = str;
 
-			var input = document.getElementsByTagName("input");
-			var i = 0;
-			input[1].onclick = function() {
-				i++;
-				console.log(i)
-				fn()
+			
+			inpt[0].onclick = function(){
+				location.search = "asdfasfdasdfsadfsadf=w";
 			}
-			input[0].onclick = function() {
-				i--;
-				console.log(i)
-				fn()
-			}
-
-			function fn() {
-				if(i > arr.length - 1) {
-					i = arr.length - 1;
-				}
-				if(i < 0) {
-					i = 0;
-				}
-				imgOne.src = arr[i];
+			inpt[1].onclick = function(){
+				location.search = "asfdasdfasdfasd=1";
 			}
 		</script>
 	</body>
-
 </html>
