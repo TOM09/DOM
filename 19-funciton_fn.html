@@ -1,25 +1,50 @@
-
- //	思路:hash根据li的索引值变化, 数据内容根据hash 的值变化
-			
-			//定义一个长度 为4 (每页条数)
-			//定义一个函数:
-			//分割hash值
-			//如果有hash,定义page =    hash最后的值
-			//否则就定义page默认为第一面.
-			//
-			/*定义start = 显示数据的开始位置start，和结束位置end
-			
-			//如果 结束的条数 > 数据的长度
-			就让它们相等  渲染页面
-			
-			//生成页码 
-			定义num = 页数  ( 总条数/每页条数)
-			
-			循环页码,创建底部页码.  让li的索引 = i+1
-			当li点击时, hash值 = "p="+li的索引
-			
-			把li添加到页面中
-			
-			当hash改变时,调用fn();
-			*/
-			
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				position: absolute;
+				border: 2px solid #000;
+				border-radius:50% ;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			var divs = document.getElementsByTagName('div');
+			document.onclick = function(ev){
+				var l = ev.clientX;
+				var t = ev.clientY;
+				fn(divs[0],l,t);
+				setTimeout(function(){
+					fn(divs[1],l,t)
+				},200)
+				setTimeout(function(){
+					fn(divs[2],l,t)
+				},400)
+			}
+			function fn(obj,l,t){
+				obj.style.display = 'block';
+				var w = 10;
+				var h = 10;
+				var o = 100;
+				obj.timer = setInterval(function(){
+					obj.style.width = (w+=2)+'px';
+					obj.style.height = (h+=2)+'px';
+					obj.style.left = l-obj.offsetWidth/2+'px';
+					obj.style.top = t-obj.offsetHeight/2+'px';
+					obj.style.opacity = (o-=2)/100;
+					if(o==0){
+						clearInterval(obj.timer);
+					}
+				},20)
+			}
+		</script>
+	</body>
+</html>
