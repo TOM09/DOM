@@ -1,42 +1,19 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" />
 		<title></title>
-		<style>
-			#div1{
-				width: 100px;
-				height: 100px;
-				background: red;
-				font: 20px/100px "微软雅黑";
-				color: #fff;
-				text-align: center;
-				position: fixed;
-				right: 0;
-				bottom: 0;
-				display: none;
-			}
-		</style>
-		
 	</head>
-	<body style="height: 3000px;">
-			<div id="div1">加到顶部</div>
-			<script>
-				var div=document.getElementById("div1");
-				//当滚动条滚动时,定义t的位置  如果t>200  就让div显示,否则隐藏  
-				//当点击div的时候  回到最上面
-				window.onscroll = function(){
-					var t = pageYOffset;
-					if(t>300){
-						div.style.display = "block";
-					}else{
-						div.style.display = "none";
-					}
-					
-					div.onclick = function(){
-						scrollTo(0,0)
-					}
-				}
+
+	<body>
+		<script type="text/javascript">
+			function fun0() {
+				console.log(this);   //arr ||  [fun0, "as", "阿萨德"]
+			}
+			var arr = [fun0, "as", "阿萨德"]
+			arr[0]();
 		</script>
 	</body>
+
 </html>
