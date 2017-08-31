@@ -1,104 +1,44 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+/*二.原型链深入	
+	2.1 _proto_属性
+	w3c是没有规定一个元素的原型链有一个可见的属性的,chrome浏览器特有的属性
+	实际上,其他浏览器有原型链的机制,但是我们看不见这个属性.
+	
+原型链的获得有两种情况:
+	1.引用类型值的对象.他们的字面量的_proto_就是他们类型的构造函数的prototype.
+	2.通过new关键字,此时构造函数的prototype就是实例的_proto_.
+	实际上,在语言规范中,一旦原型链产生,将不能更改.chrome浏览器可以更改,但不规范而已.
+	
+	ES6中,提供了Object.create()函数,可以让我们指定一个对象为原型对象,来创建新对象.*/
+	var obj1 = {"a":1,"b":2};
+	var obj2 = Object.create(obj1);
+	console.log(obj2._proto_ === obj1)
+	console.log(obj2.a)
+	console.log(obj2.b)
+	
+//自带的create函数兼容性很差	所以写一个兼容的函数叫做 create()
+//接受一个对象参数,返回以这个对象为原型对象的新对象	
+function create(obj){
+	//虚构一个构造函数
+	function f(){};
+	//让这个构造函数的prototype 指向传入的对象
+	f.prototype = obj;
+	//实例化.实例的_proto_就是指向obj
+	return new f();
+}
+var obj1 = {"a":1,"b":2};
+var obj2 = create(obj1);
+console.log(obj2.a)
+console.log(obj2.b)
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			#box{
-				width: 100px;
-				height: 100px;
-				background: green;
-				position: absolute;
-				left: 0;
-				top: 0;
-			}
-		</style>
-	</head>
-
-	<body>
-		<div id="box"></div>
-		asdfasd 
-		<script type="text/javascript">
-		function fn(id){
-			this.box = document.getElementById(id);
-			this.disx;
-			this.disy;
-		}
-		
-		fn.prototype.down = function(){
-			console.log(this.box)
-			this.box.onmousedown = function(ev){
-				this.disx
-			}
-			
-		fn.prototype.downs = function(){
-			console.log(this.box)
-			this.box.onmousedown = function(ev){
-			
-			box.onmousedown = function(ev){
-				disx = ev.clientX - box.offsetLeft;
-				disy = ev.clientY - box.offsetTop;
-				console.log(box.getBoundingClientRect().top)
-						l = 0;
-					}else if(l>window.innerWidth - box.offsetWidth){
-						l = window.innerdWidth - box.offsetWidth;
-					}
-					
-					if(t<0){
-						t = 0;
-					}else if(t>window.innerHeight - box.offsetHeight){
-						t = window.innerHeight - box.offsetHeight;
-					}
-					
-					box.style.top = t + "px";
-
-				}
-				document.onmouseup = functi	document.onmouseup = function(){
-					document.onmousemove = document.onmousemove = null;
-				}	document.onmouseup = function(){
-					document.onmousemove = document.onmousemove = null;
-				}on(){
-					document.onmousemove = document.onmousemove = null;
-				}
-				
-					return false;
-			}
-			/*var box = document.getElementById("box");
-			var disx;
-			var disy;
-			
-			box.onmousedown = function(ev){
-				disx = ev.clientX - box.offsetLeft;
-				disy = ev.clientY - box.offsetTop;
-				console.log(box.getBoundingClientRect().top)
-				console.log(box.offsetTop)
-				document.onmousemove = function(ev){
-					var l = ev.clientX - disx;
-					var t = ev.clientY - disy;
-					if(l<0){
-						l = 0;
-					}else if(l>window.innerWidth - box.offsetWidth){
-						l = window.innerWidth - box.offsetWidth;
-					}
-					
-					if(t<0){
-						t = 0;
-					}else if(t>window.innerHeight - box.offsetHeight){
-						t = window.innerHeight - box.offsetHeight;
-					}
-					
-					box.style.left = l+ "px";
-					box.style.top = t + "px";
-
-				}
-				document.onmouseup = function(){
-					document.onmousemove = document.onmousemove = null;
-				}
-				
-					return false;
-			}*/
-		</script>
-	</body>
-
+显而易见的是,任何一个对象都有原型对象,原型链的终点就是Object.prototype.
+	</script>
+</body>
 </html>
