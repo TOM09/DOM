@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width,user-scalable=no">
+		<title></title>
+		<script type="text/javascript">
+			(function(){
+				var html = document.documentElement;
+				var width = html.getBoundingClientRect().width;
+				html.style.fontSize = width/15+"px";
+			})()
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="js/js.js"></script>
+		
+		<script src="js/jquery-3.1.1.js" charset="utf-8"></script>
+		<script src="js/template.js" charset="utf-8"></script>
+
+		<script type="text/html" id="temp"></script>
+		
+		<script type="text/javascript" src="js/M.js"></script>
+		<script type="text/javascript" src="js/V.js"></script>
+		<script type="text/javascript" src="js/C.js"></script>
+	</head>
+		<!--顶部title栏-->
+		<div id="title">
+			<a href="index.html" id="douban">
+				<h1>豆瓣</h1></a>
+			<nav id="titleRt">
+				<ul id="ulTit">
+					<li><a href="movie.html" id="book">电影</a></li>
+					<li><a href="book.html" id="book">图书</a></li>
+					<li>
+						<a href="broadcast.html">广播</a></li>
+					<li><a href="team.html">小组</a></li>
+				</ul>
+				<span id="search"><a href="search.html" class="searchSpA"></a></span>
+			</nav>
+		</div>
+
+
+		<!--内容 题目部分-->
+		<div id="contentMbox">
+			<!--更多电影部分-->
+			<div class="contentMovie">
+				<div class="contentMtitle">
+					<h3>影院热映</h3>
+					<span>
+						<a href="moviemore.html">更多</a>
+					</span>
+				</div>
+				<ul class="movieUls movieUlsOne">
+					<!--<li class="movieList">
+						<div id="content2" class="content2">
+
+							<a href="" class="content2MC">
+								<img src="img/5.jpg" class="content2Img">
+								<div class="movieName">战狼2
+								</div>
+								<p class="movieStar">
+									<span class="movieStarSP">
+							<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									</span>
+									<span class="moviePoint">
+							7.5
+						</span>
+								</p>
+							</a>
+
+						</div>
+					</li>-->
+				</ul>
+			</div>
+
+			<!--免费在线观影部分-->
+			<div class="contentMovie">
+				<div class="contentMtitle">
+					<h3>免费在线观影</h3>
+					<span>更多</span>
+				</div>
+				
+				<ul class="movieUls movieUlsTwo">
+					<!--<li class="movieList">
+						<div id="content2" class="content2">
+
+							<a href="" class="content2MC">
+								<div class="content2Img">
+								</div>
+								<div class="movieName">战狼2
+								</div>
+								<p class="movieStar">
+									<span class="movieStarSP">
+							<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									</span>
+									<span class="moviePoint">
+							7.5
+						</span>
+								</p>
+							</a>
+
+						</div>
+					</li>-->
+				</ul>
+			</div>
+
+			<!--新片速递-->
+			<div class="contentMovie">
+				<div class="contentMtitle">
+					<h3>新片速递</h3>
+					<span>更多</span>
+				</div>
+				<ul class="movieUls movieUlsThree">
+					<!--<li class="movieList">
+						<div id="content2" class="content2">
+
+								<div class="content2Img">
+								</div>
+								<div class="movieName">战狼2
+								</div>
+								<p class="movieStar">
+									<span class="movieStarSP">
+							<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									<span>
+								★
+							</span>
+									</span>
+									<span class="moviePoint">
+							7.5
+						</span>
+								</p>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		<!--发现好电影-->
+		<div class="contentMovie contentMovie2">
+			<div class="contentMtitle">
+				<h3>发现好电影</h3>
+			</div>
+			<!--<div class="bestMove">-->
+			<ul class="bestMoveUls">
+				<li>
+					<a href="">同时入选IMDB250和豆瓣电影250的电影</a>
+				</li>
+				<li>
+					<a href="">带你进入不正常的世界</a>
+				</li>
+				<li>
+					<a href="">用电【影】来祭奠逝去的岁月</a>
+				</li>
+				<li>
+					<a href="">女孩们的故事【电影】</a>
+				</li>
+				<li>
+					<a href="">科幻是未来的钥匙——科幻启示录【科幻题材】</a>
+				</li>
+				<li>
+					<a href="">美国生活面面观</a>
+				</li>
+				<li>
+					<a href="">2015终极期待</a>
+				</li>
+				<li>
+					<a href="">经典韩国电影——收集100部</a>
+				</li>
+			</ul>
+			<!--</div>-->
+		</div>
+
+		<!--分类浏览-->
+		<div class="contentMovie contentMovieBottom">
+			<div class="contentMtitle">
+				<h3>分类浏览</h3>
+			</div>
+				<ul class="classifyRd">
+					<li><a href="">经典</a><span>></span></li>
+					<li><a href="">冷门佳片</a><span>></span></li>
+					<li><a href="">豆瓣高分</a><span>></span></li>
+					<li><a href="">动作</a><span>></span></li>
+					<li><a href="">喜剧</a><span>></span></li>
+					<li><a href="">爱情</a><span>></span></li>
+					<li><a href="">悬疑</a><span>></span></li>
+					<li><a href="">恐怖</a><span>></span></li>
+					<li><a href="">科幻</a><span>></span></li>
+					<li><a href="">治愈</a><span>></span></li>
+					<li><a href="">文艺</a><span>></span></li>
+					<li><a href="">成长</a><span>></span></li>
+					<li><a href="">动画</a><span>></span></li>
+					<li><a href="">华语</a><span>></span></li>
+					<li><a href="">欧美</a><span>></span></li>
+					<li><a href="">韩国</a><span>></span></li>
+					<li><a href="">日本</a><span>></span></li>
+				</ul>
+		</div>
+<!--底部logo-->
+		<div class="download-app">
+			<div class="btmInfo">
+                <img src="img/douban-app-logo.png" class="btLogImg">
+                <div class="info-content">
+                    <strong>豆瓣</strong>
+                    <div>我们的精神角落</div>
+                </div>
+            </div>
+            <a href="" class="btmaaaaa">去 App Store 免费下载 iOS 客户端</a>
+		</div>
+		
+		
+	</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			
+			body {
+				background: #2f2a78;
+				overflow: hidden;
+			}
+			
+			.warp {
+				width: 101px;
+				height: 387px;
+				background: #fff;
+				margin: 200px auto;
+			}
+			
+			#box {
+				width: 88px;
+				height: 387px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#div1 {
+				width: 13px;
+				height: 387px;
+				float: right;
+				position: relative;
+				background: #ccc;
+			}
+			
+			#div3 {
+				width: 9px;
+				height: 72px;
+				background: url(bg.png) 0px -12px no-repeat;
+				position: absolute;
+				top: 0;
+				left: 2px;
+			}
+			
+			#div2 {
+				width: 13px;
+				height: 367px;
+				margin-top: 10px;
+				position: relative;
+			}
+			
+			#top {
+				width: 11px;
+				height: 10px;
+				background: url(bg.png) 0 0 no-repeat;
+				position: absolute;
+				top: 0;
+				left: 1px;
+			}
+			
+			#bottom {
+				width: 11px;
+				height: 10px;
+				background: url(bg.png) -12px 0 no-repeat;
+				position: absolute;
+				bottom: 0;
+				left: 1px;
+			}
+			
+			#ul {
+				list-style: none;
+				width: 88px;
+				position: absolute;
+				top: 0;
+			}
+			
+			li {
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="warp">
+			<div id="box">
+				<ul id="ul">
+					<!--<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>-->
+				</ul>
+			</div>
+			<div id="div1">
+				<div id="top"></div>
+				<div id="div2">
+					<div id="div3"></div>
+				</div>
+				<div id="bottom"></div>
+			</div>
+		</section>
+
+	</body>
+
+</html>
+<script src="data.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var box = document.getElementById("box");
+	var _ul = document.getElementById("ul");
+	//获取滚动条所在的box
+	var div2 = document.getElementById("div2");
+	//获取滚动条
+	var div3 = document.getElementById("div3");
+	var str = '';
+	//获取数据  拼接字符串
+	for(var i = 0; i < arrCity.length; i++) {
+		str += `<li><p>${arrCity[i].name}</p></li>`;
+	}
+	_ul.innerHTML = str;
+
+	//拖拽滚动条事件
+	//当div3按下的时候
+	div3.onmousedown = function(ev) {
+		ev.preventDefault();
+
+		//记录按下的位置 (鼠标点到可视区域的距离 - 滚动条顶部到可视区域的距离 = 鼠标点击的位置)
+		var disY = ev.clientY - this.getBoundingClientRect().top;
+		//可移动区域 = 滚动条所在的盒子高度 - 滚动条的高度()
+		var maxT = div2.clientHeight - this.offsetHeight;
+
+		//所有文字的高度 - 可视文字框的高度 = 超出的文字高度
+		var maxH = _ul.scrollHeight - box.clientHeight;
+
+		//当鼠标移动的时候
+		//移动的距离 = 鼠标现在距离上面的位置 - 滚动条区域顶部到上面的高度 - 之前按下的位置 
+		document.onmousemove = function(ev) {
+			var y = ev.clientY - disY - div2.getBoundingClientRect().top;
+			if(y < 0) {
+				y = 0;
+			}
+			if(y > maxT) {
+				y = maxT;
+			}
+			div3.style.top = y + "px";
+			//设一个比例:鼠标移动的距离  / 可移动区域的距离
+			var scale = y / maxT;
+			//文字内容距离上面的高度 = 比例 * 超出的文字高度 + "px";
+			_ul.style.top = -scale * maxH + "px";
+		}
+		document.onmouseup = function() {
+			document.onmousemove = document.onmouseup = null;
+		}
+	}
+
+	//点击箭头上下
+	var _up = document.getElementById("top");
+	console.log(_up)
+	var _down = document.getElementById("bottom");
+
+	//点击事件上
+	_up.onmousedown = function() {
+		//当点击前首先清除定时器
+		clearInterval(timer);
+		//设置一个值即原来滚动块的顶部值 - 10;之后每次点击或者在定时器状态下都会减10
+		var timer = setInterval(function() {
+			var box111 = parseInt(getComputedStyle(div3).top) - 10;
+			//如果这个值小于等于0的时候,就把它定成0,并且清除定时器
+			if(box111 <= 0) {
+				box111 = 0;
+				clearInterval(timer);
+			}
+			//移动函数
+			fnMove(box111);
+
+		}, 50)
+		_up.onmouseup = function() {
+			clearInterval(timer);
+		}
+	}
+
+	//点击事件下
+	_down.onmousedown = function() {
+		//当点击前首先清除定时器
+		clearInterval(timer);
+		//设置一个值即原来滚动块的顶部值 - 10;之后每次点击或者在定时器状态下都会减10
+		var timer = setInterval(function() {
+			var box1111 = parseInt(getComputedStyle(div3).top) + 10;
+			//如果这个值小于等于0的时候,就把它定成0,并且清除定时器
+			if(box1111 >= 295) {
+				box1111 = 295;
+				clearInterval(timer);
+			}
+			//移动函数
+			fnMove(box1111);
+
+		}, 50)
+		_down.onmouseup = function() {
+			clearInterval(timer);
+		}
+	}
+
+	//滚轮事件
+	box.onmousewheel = function(ev) {
+		if(ev.wheelDelta > 0) {
+			var box111 = parseInt(getComputedStyle(div3).top) - 10;
+			if(box111 <= 0) {
+				box111 = 0;
+			}
+			fnMove(box111);
+		} else {
+			var box1111 = parseInt(getComputedStyle(div3).top) + 10;
+			if(box1111 >= 295) {
+				box1111 = 295;
+			}
+			fnMove(box1111);
+		}
+	}
+
+	//移动函数	
+	function fnMove(obj) {
+		//可移动区域 = 滚动条所在的盒子高度 - 滚动条的高度()
+		var maxT = div2.clientHeight - div3.offsetHeight;
+		//所有文字的高度 - 可视文字框的高度 = 超出的文字高度
+		var maxH = _ul.scrollHeight - box.clientHeight;
+		//移动的距离 = 鼠标现在距离上面的位置 - 滚动条区域顶部到上面的高度 - 之前按下的位置 
+		//设一个比例:滚动块移动的距离  / 可移动区域的距离
+		var scale = obj / maxT;
+		//文字内容距离上面的高度 = 比例 * 超出的文字高度 + "px";
+		_ul.style.top = -scale * maxH + "px";
+		//把这个值赋给滑块的顶部,使随之改变,达到移动.
+		div3.style.top = obj + "px";
+	}
+	
+	//点击滚动条
+	div2.onmousedown = function(ev){
+		var y = ev.clientY - this.getBoundingClientRect().top - div3.offsetHeight/2;
+			if(y <= 0) {
+				y = 0;
+			}else if(y >= 295) {
+				y = 295;
+			}
+			
+		fnMove(y);
+		console.log(div3.style.top)
+	}
+</script>

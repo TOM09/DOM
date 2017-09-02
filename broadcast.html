@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width,user-scalable=no">
+		<title></title>
+		<script type="text/javascript">
+			(function() {
+				var html = document.documentElement;
+				var width = html.getBoundingClientRect().width;
+				html.style.fontSize = width / 15 + "px";
+			})()
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="js/js.js"></script>
+	</head>
+
+	<body>
+		<!--顶部title栏-->
+		<div id="title">
+			<a href="index.html" id="douban">
+				<h1>豆瓣</h1></a>
+			<nav id="titleRt">
+				<ul id="ulTit">
+					<li>
+						<a href="movie.html" id="book">电影</a>
+					</li>
+					<li>
+						<a href="book.html" id="book">图书</a>
+					</li>
+					<li>
+						<a href="broadcast.html">广播</a></li>
+					<li><a href="team.html">小组</a></li>
+				</ul>
+				<span id="search"><a href="search.html" class="searchSpA"></a></span>
+			</nav>
+		</div>
+
+		<!--下载app-->
+		<section class="banner" style="display: block !important">
+			<div class="banner_bg">
+				<img src="img/promotion_bg.jpg" class="banner_bg_img">
+			</div>
+			<div class="banner_wp">
+				<div class="banner_in">
+					<div class="promo_title">
+
+						<span class="pTt">打开App, 回复广播</span><br>
+						<span class="pTt"></span>
+					</div>
+					<div class="button_wp">
+						<a href="https://www.douban.com/doubanapp/app?model=B&amp;copy=1&amp;page=status&amp;channel=card_guangbo&amp;direct_dl=1" rel="nofollow" onclick="ga('send', 'event', 'windows', 'click', 'subject banner download')" class="pButton download_app">极速下载</a>
+						<a href="https://www.douban.com/doubanapp/card/get_app?from=mdouban&amp;client_uri=douban%3A%2F%2Fdouban.com%2Ftimeline&amp;model=B&amp;copy=1&amp;page=status&amp;channel=card_guangbo" rel="nofollow" onclick="ga('send', 'event', 'windows', 'click', 'card more link')" class="pButton open_app">打开</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--登录发广播-->
+		<div class="status-editor-bar">
+			<div class="avatar"><img src="img/user_normal.jpg" alt="未登陆"></div>
+			<div class="holder">登录发广播</div>
+			<div class="icon icon-camera"><img src="img/camera.jpg" /></div>
+			<div class="icon icon-pen"><img src="img/pen.jpg" /></div>
+		</div>
+		<!--动态-->
+		<div class="broadcastBody">
+		<ul class="status-list comment-list">
+			<li>
+				<div>
+					<div class="desc">
+						<a href=""><img src="img/up16.jpg"></a>
+						<div class="user-info"><strong><!-- react-text: 23 -->豆瓣<!-- /react-text --><!-- react-text: 24 --> <!-- /react-text --><span>写了日记</span></strong>
+							<div class="timestamp">2017-08-30 11:19:56</div>
+						</div>
+					</div>
+						<div class="content">
+							<div></div>
+						</div>
+				</div>
+				<div class="feed-card">
+						<div class="title">豆瓣App 5.4.0 主要更新</div>
+						<div class="detail ">
+							<div class="text">- 可以在“我的-电影电视”里找到我访问过的讨论区了，追剧的乐趣在于和豆友一起讨论； - 对讨论区的单...</div>
+						</div>
+				</div>
+				<!-- react-empty: 35 -->
+				<div class="info">
+					<div class="ic-btn ic-btn-like  left "><span class="text">4</span></div>
+					<div class="ic-btn ic-btn-comment  left "><span class="text">0</span></div>
+					<div class="ic-btn ic-btn-retweet  left "><span class="text">0</span></div>
+					<div class="ic-btn ic-btn-more   right"></div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="desc">
+						<a href="/people/95805238/"><img data-type="avatar" alt="豆瓣" src="https://img3.doubanio.com/icon/up95805238-16.jpg"></a>
+						<a href="/people/95805238/status/1996536901/">
+							<div class="user-info"><strong>豆瓣<span>写了日记</span></strong>
+								<div class="timestamp">2017-06-02 18:23:00</div>
+							</div>
+						</a>
+					</div>
+					<a href="/people/95805238/status/1996536901/">
+						<div class="content">
+							<div></div>
+						</div>
+					</a>
+				</div>
+				<div class="feed-card article-card has-cover has-subtitle">
+					<a href="https://www.douban.com/note/622938406/">
+						<div class="title">他的电影都这么单纯，心里一定住着位小王子吧——一周热门精选(06.05-06.11）</div>
+						<div class="detail has-cover">
+							<div class="text">－一周热门，都在这里－ 【影视】日记：他的电影都这么单纯，心里一定住着位小王子吧 来自：方枪枪 他曾...</div>
+							<div class="cover" data-type="cover" style="background-image: url(&quot;https://qnmob2.doubanio.com/view/note/large/public/p43064687.jpg?imageView2/0/q/80/w/9999/h/200/format/jpg&quot;);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="info">
+					<div class="ic-btn ic-btn-like  left "><span class="text">8</span></div>
+					<div class="ic-btn ic-btn-comment  left "><span class="text">0</span></div>
+					<div class="ic-btn ic-btn-retweet  left "><span class="text">0</span></div>
+					<div class="ic-btn ic-btn-more   right"></div>
+				</div>
+			</li>
+			<a class="list-link" rel="nofollow">显示更多广播</a>
+		</ul>
+	</div>
+	</body>
+
+</html>
