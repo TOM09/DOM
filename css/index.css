@@ -298,7 +298,6 @@ a {
 	width: 90%;
 	text-align: center;
 }
-
 .movieStar {
 	overflow: hidden;
 	text-align: center;
@@ -318,12 +317,6 @@ a {
 	color: #A8ABA0;
 	font-size: 0.48rem;
 }
-
-
-/*.content2 {
-	float: left;
-}
-*/
 
 .movieUls {
 	font-size: 0;
@@ -1163,7 +1156,6 @@ section h2 {
 
 
 /*搜索*/
-
 .searchForm {
 	border-bottom: 0.04rem solid #f3f3f3;
 	padding: 0.6rem 0.72rem 0.6rem 2.4rem;
@@ -1277,6 +1269,7 @@ section h2 {
 	position: relative;
 }
 
+/*图书书店部分  待用*/
 .bookUlsTwoMore .item .cover {
 	float: left;
 	margin-right: 0.6rem;
