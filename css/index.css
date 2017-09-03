@@ -5,7 +5,8 @@ ul,
 li,
 a,
 image,
-span {
+span,
+p {
 	font-family: "微软雅黑";
 	margin: 0;
 	padding: 0;
@@ -250,7 +251,9 @@ a {
 	overflow: hidden;
 	padding: 0 1.12rem;
 }
-
+.contentBook .contentBtitle{
+	padding: 0;
+}
 .contentMtitle h3 {
 	font-size: 0.64rem;
 	color: #05131c;
@@ -296,10 +299,14 @@ a {
 	text-align: center;
 }
 
-.movieStar{
+.movieStar {
 	overflow: hidden;
 	text-align: center;
 }
+.movieStarbook{
+	padding-left: 1.2rem;
+}
+
 .movieStar span {
 	font-size: 0.4rem;
 	color: yellow;
@@ -308,14 +315,16 @@ a {
 }
 
 .movieStar .moviePoint {
-	color:#A8ABA0;
+	color: #A8ABA0;
 	font-size: 0.48rem;
 }
+
 
 /*.content2 {
 	float: left;
 }
 */
+
 .movieUls {
 	font-size: 0;
 	white-space: nowrap;
@@ -333,9 +342,8 @@ a {
 	margin-left: 0.48rem;
 }
 
-.movieListMore{
-	
-}
+.movieListMore {}
+
 
 /*发现好电影部分*/
 
@@ -475,9 +483,11 @@ a {
 	padding: 0 0.72rem;
 	overflow: hidden;
 }
-.contentBoxStore{
+
+.contentBoxStore {
 	margin-top: 0.6rem;
 }
+
 .content2bookA {
 	overflow: hidden;
 }
@@ -1161,10 +1171,10 @@ section h2 {
 
 .close-open {
 	position: absolute;
-	top: 20px;
-	left: 18px;
+	top: 0.8rem;
+	left: 0.72rem;
 	color: #42bd56;
-	font-size: 16px;
+	font-size: 0.64rem;
 }
 
 .searchForm input {
@@ -1172,15 +1182,15 @@ section h2 {
 	-webkit-appearance: none;
 	border: 0;
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABGdBT…B/WBsUDu2HQ0ND33Ou41KOTpsm51SVYEZHR3cN/5Pq/wfEdlFyq1lD2AAAAABJRU5ErkJggg==) no-repeat 50% #f3f3f3;
-	background-size: 17.33333px;
-	border-radius: 3px;
+	background-size: 0.693333rem;
+	border-radius: 0.12rem;
 	width: 100%;
-	height: 31px;
-	font-size: 14px;
+	height: 1.24rem;
+	font-size: 0.56rem;
 }
 
 .searchUl {
-	padding-top: 25px;
+	padding-top: 1rem;
 	overflow: hidden;
 	display: -webkit-box;
 	display: flex;
@@ -1197,7 +1207,7 @@ section h2 {
 .searchUl li a {
 	display: block;
 	text-align: center;
-	margin-bottom: 25px;
+	margin-bottom: 1rem;
 	position: relative;
 	left: -50%;
 	top: 0;
@@ -1206,16 +1216,16 @@ section h2 {
 .searchUl li strong {
 	display: block;
 	font-weight: 400;
-	font-size: 24px;
-	line-height: 28px;
+	font-size: 0.96rem;
+	line-height: 1.12rem;
 }
 
 .searchUl li span {
 	display: block;
 	color: #999;
-	height: 17px;
-	font-size: 12px;
-	letter-spacing: 1px;
+	height: 0.68rem;
+	font-size: 0.48rem;
+	letter-spacing: 0.04rem;
 }
 
 .navBottom {
@@ -1224,8 +1234,8 @@ section h2 {
 }
 
 .nav-item {
-	border-top: 1px solid #f3f3f3;
-	padding: 13px 0;
+	border-top: 0.04rem solid #f3f3f3;
+	padding: 0.52rem 0;
 	overflow: hidden;
 }
 
@@ -1236,14 +1246,14 @@ section h2 {
 }
 
 .navBottom .nav-item a:first-child {
-	border-right: 1px solid #e5e5e5;
+	border-right: 0.04rem solid #e5e5e5;
 }
 
 .navBottom a {
 	margin: 0 auto;
 	text-align: center;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 0.6rem;
 	color: #42bd56;
 }
 
@@ -1258,4 +1268,93 @@ section h2 {
 .nav-item .toReg,
 .toPC {
 	float: left;
+}
+
+.bookUlsTwoMore .item {
+	display: block;
+	padding: 0.8rem 4%;
+	overflow: hidden;
+	position: relative;
+}
+
+.bookUlsTwoMore .item .cover {
+	float: left;
+	margin-right: 0.6rem;
+	width: 4rem;
+	min-height: 4rem;
+}
+
+.bookUlsTwoMore .item .info {
+	overflow: hidden;
+}
+
+.bookUlsTwoMore .item h4 {
+	font-size: 0.48rem;
+	padding-bottom: 0.2rem;
+	margin: 0;
+}
+
+.bookUlsTwoMore .item h3 {
+	font-size: 0.68rem;
+	padding: 0 0 0.2rem;
+	color: #494949;
+}
+
+.bookUlsTwoMore .item h3 .action-tag {
+	word-break: keep-all;
+	white-space: nowrap;
+	position: relative;
+	top: -0.11rem;
+	background: none;
+	color: #f5a623;
+	border: 0.04rem solid #f5a623;
+}
+
+.action-tag {
+	font-size: 0.36rem;
+	color: #fff;
+	border-radius: 0.12rem;
+	border: 0.04rem solid #eee;
+	background: #f5a623;
+	padding: 0.04rem 0.2rem;
+}
+
+.bookUlsTwoMore .item .rank {
+	font-size: 0.48rem;
+}
+
+.rating-stars {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.list .item .meta {
+	padding-top: 0.2rem;
+}
+
+.bookUlsTwoMore .item .meta,
+.list .item .star {
+	font-size: 0.48rem;
+}
+
+.bookUlsTwoMore .item .meta {
+	padding-top: 5px;
+}
+
+.bookUlsTwoMore .item cite {
+	font-size: 0.52rem;
+	margin-top: 0.56rem;
+	line-height: 0.72rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.bookUlsTwoMore .item cite {
+	font-style: normal;
+}
+.bookUlsTwoMore .item .cover img {
+    width: 100%;
 }
