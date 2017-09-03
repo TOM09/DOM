@@ -1,50 +1,37 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			div{
-				position: absolute;
-				border: 2px solid #000;
-				border-radius:50% ;
-				display: none;
-			}
-		</style>
-	</head>
-	<body>
-		<div></div>
-		<div></div>
-		<div></div>
-		<script type="text/javascript">
-			var divs = document.getElementsByTagName('div');
-			document.onclick = function(ev){
-				var l = ev.clientX;
-				var t = ev.clientY;
-				fn(divs[0],l,t);
-				setTimeout(function(){
-					fn(divs[1],l,t)
-				},200)
-				setTimeout(function(){
-					fn(divs[2],l,t)
-				},400)
-			}
-			function fn(obj,l,t){
-				obj.style.display = 'block';
-				var w = 10;
-				var h = 10;
-				var o = 100;
-				obj.timer = setInterval(function(){
-					obj.style.width = (w+=2)+'px';
-					obj.style.height = (h+=2)+'px';
-					obj.style.left = l-obj.offsetWidth/2+'px';
-					obj.style.top = t-obj.offsetHeight/2+'px';
-					obj.style.opacity = (o-=2)/100;
-					if(o==0){
-						clearInterval(obj.timer);
-					}
-				},20)
-			}
-		</script>
-	</body>
-</html>
+//渲染层,接收到M层的数据,并且渲染出来.
+//在M层中,data已经放入到script中,现在模板要调用数据了
+
+//首先定义一个模板,包含h5,ul和li格式
+//把data数据中的各项拼接到模板中
+
+//h5中是data.title 和data.totale
+//循环data的json数据的长度
+
+//在li中放入img和p标签
+//在img中设src  src从data中去找
+//在p中放入单个json的title
+//在p中放入data数据中的评分
+
+//把变量放到temp  (script标签)中
+
+//title 是网站数据转对象的样子.在network中的preview中的title上 
+//data数据的title             <%=title%></1>
+
+let View = `<%for(var i=0;i<subjects.length;i++){%>
+					<li class="movieList">
+							<img src="<%=subjects[i].images.medium%>" class="content2Img">
+					    	<div class="movieName"><%=subjects[i].title%></div>
+					    	<p class="movieStar">
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+					      		<span class="moviePoint">
+					      			<%=subjects[i].rating.average%>
+					      		</span>
+					     	 </p>
+				    </li>
+				    <%}%>
+				`
+			$('#temp').html(View);

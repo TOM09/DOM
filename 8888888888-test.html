@@ -1,59 +1,110 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			ul{
-				margin:0;
-				padding:0;
-				list-style: none;
-				width:100px;
-				border: 1px solid #000;
-				position: absolute;
-				display: none;
-			}
-		</style>
-	</head>
-	<body>
-		<ul id="list">
-			<li>菜单1</li>
-			<li>菜单2</li>
-			<li>菜单3</li>
-			<li>菜单4</li>
-			<li>菜单5</li>
-			<li>菜单6</li>
-		</ul>
-		<script type="text/javascript">
-		document.oncontextmenu = function(ev){
-		//获取ul  当点击右键时候阻止默认菜单,显示ul
-			//阻止默认右键菜单
-		ev.preventDefault();
-		var list = document.getElementById("list");
-		//ul的左边最大值是可视范围内的宽或高  - 菜单本身的宽高
-		var maxL = innerWidth - list.offsetWidth;
-		var maxT = innerHeight - list.offsetHeight;
-		
-		//三目  判断鼠标的x位置是否大于最大宽度,如果是,l就等于最大宽度 如果不是  就等于鼠标的位置
-		//三目  判断鼠标的y位置是否大于最大高度,如果是,t就等于鼠标位置 - ul高度 如果不是  就等于鼠标的位置
-		var l = ev.clientX > maxL?maxL:ev.clientX;
-		var t = ev.clientY > maxT?ev.clientY-list.offsetHeight:ev.clientY;
-				//显示自定义菜单
-				list.style.display = "block";
-				//限制范围
-				list.style.left = l +"px";
-				list.style.top = t +"px";
-				
-				//右边超过最大值，等于最大值
-				//下边超过最大值，鼠标位置-菜单高度
-				//如果点的不是菜单上，菜单消失
-		}
-		document.onclick = function(ev){
-			if(ev.target.parentNode != list){
-				list.style.display = "";
-			}
-		}
-				
-		</script>
-	</body>
+<head>
+ <title>移动端轮播</title>
+ <style type="text/css">
+  * {
+   margin: 0;
+   padding: 0;
+  }
+  #box {
+   width: 980px;
+   overflow: hidden;
+   position: relative;
+   margin: 0 auto;
+  }
+  #box ul {
+   width: 4900px;
+   height: 100px;
+   position: relative;
+   transform: translateX(-980px);
+   
+  }
+  #box ul li{
+   width: 980px;
+   height: 100px;
+   float: left;
+   list-style-type: none;
+   text-align: center;
+   color: #fff;
+   line-height: 100px;
+   font-size: 30px;
+  }
+ </style>
+ <script type="text/javascript">
+  window.onload = function() {
+   var box = document.getElementById('box');
+   var oUl = document.getElementsByTagName('ul')[0];
+   var aLi = oUl.children;//这样就可以把所有li标签获取到了
+   var iNow = 1;
+   
+   var x = -iNow*aLi[0].offsetWidth;//li标签的位置
+   var bReady = true;
+   oUl.addEventListener('touchstart',function(ev){
+
+    //当手指触摸屏幕的时候触发事件，让li的位置随手指滑动而改变
+    if(bReady == false){return;}
+    bReady = false; 
+    
+      //记录触摸位置 
+    var downX = ev.targetTouches[0].pageX; 
+   //下一个li要移动到的位置
+    var disX = downX - x;
+    
+    function fnMove(ev) {
+     x = downX-disX;
+     oUl.style.transform = 'translate3d('+x+'px,0,0)';
+    }
+    function fnEnd(ev){
+     var upX = ev.changedTouches[0].pageX;//离开的位置
+     if(Math.abs(upX - downX)>50){
+      //左边移动
+      if(upX - downX<0){
+       iNow++;
+       if(iNow==aLi.length){iNow=aLi.length-1;}
+      }else{
+      //右边移动
+       iNow--;
+       if(iNow==-1){iNow=0;}
+      }
+     }
+     x = -iNow*aLi[0].offsetWidth;
+     oUl.style.transform = 'translate3d('+x+'px,0,0)';
+     oUl.style.transition = '200ms all ease';
+     function tEnd(){
+      if(iNow==4){
+       iNow=1;
+      }
+      if(iNow==0){iNow=3;}
+      oUl.style.transition = 'none'
+      x = -iNow*aLi[0].offsetWidth;
+      oUl.style.transform = 'translate3d('+x+'px,0,0)';
+      bReady = true;
+     } 
+     oUl.addEventListener('transitionend',tEnd,false);
+     //释放内存
+     document.removeEventListener('touchend',fnEnd,false);
+     document.removeEventListener('touchmove',fnMove,false);
+
+    }
+    document.addEventListener('touchmove',fnMove,false);
+    document.addEventListener('touchend',fnEnd,false);
+    //阻止默认事件
+    ev.preventDefault();
+   },false);
+
+  }
+ </script>
+</head>
+<body>
+ <div id="box"> 
+ <ul>
+  <li style="background:green">3</li>
+  <li style="background:orange">1</li>
+  <li style="background:yellow">2</li>
+  <li style="background:green">3</li>
+  <li style="background:orange">1</li>
+ </ul>
+ </div> 
+</body>
 </html>
