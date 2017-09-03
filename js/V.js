@@ -69,4 +69,3 @@ let View3 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 				    <%}%>
 				`
 $('#temp3').html(View3);
-

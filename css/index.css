@@ -251,9 +251,11 @@ a {
 	overflow: hidden;
 	padding: 0 1.12rem;
 }
-.contentBook .contentBtitle{
+
+.contentBook .contentBtitle {
 	padding: 0;
 }
+
 .contentMtitle h3 {
 	font-size: 0.64rem;
 	color: #05131c;
@@ -298,11 +300,13 @@ a {
 	width: 90%;
 	text-align: center;
 }
+
 .movieStar {
 	overflow: hidden;
 	text-align: center;
 }
-.movieStarbook{
+
+.movieStarbook {
 	padding-left: 1.2rem;
 }
 
@@ -1156,6 +1160,7 @@ section h2 {
 
 
 /*搜索*/
+
 .searchForm {
 	border-bottom: 0.04rem solid #f3f3f3;
 	padding: 0.6rem 0.72rem 0.6rem 2.4rem;
@@ -1269,7 +1274,9 @@ section h2 {
 	position: relative;
 }
 
+
 /*图书书店部分  待用*/
+
 .bookUlsTwoMore .item .cover {
 	float: left;
 	margin-right: 0.6rem;
@@ -1348,6 +1355,7 @@ section h2 {
 .bookUlsTwoMore .item cite {
 	font-style: normal;
 }
+
 .bookUlsTwoMore .item .cover img {
-    width: 100%;
+	width: 100%;
 }
