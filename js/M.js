@@ -95,22 +95,4 @@ fn('.historyBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_colle
 fn('.wgBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_book_foreign_hot/items?os=ios&for_mobile=1&callback=?');
 
 //广播
-//fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?');
-//星星评分函数
-//function showStar(n,obj1,obj2){
-//          	//定义大盒子的宽 和 透明星星的盒子
-//           /*   var con_wid=document.getElementById("star_con").offsetWidth;
-//              var del_star=document.getElementById("del_star");
-//              console.log(con_wid);
-//            */  
-//              //透明星星移动的像素
-//              //相当于把盒子分成10份,用n去乘以每份的数值 得出占比
-//              var del_move=(n*obj2)/100;
-//              
-//              //透明盒子的背景位置为 
-//              //透明盒子的左边为
-////              obj1.css("color",'red');
-//              
-//              obj1.css("backgroundPosition",'-Math.round(del_move)*10+"px 0px"');
-//              obj1.css("left",'Math.round(del_move)*10+"px"');
-//          }
+//fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?'); 
