@@ -160,7 +160,7 @@ a {
 	width: 3.48rem;
 	height: 3.48rem;
 	float: right;
-	background: url(../img/1.jpg) no-repeat;
+	/*background: url(../img/1.jpg) no-repeat;*/
 }
 
 #contentOnebottom {
@@ -1358,4 +1358,35 @@ section h2 {
 
 .bookUlsTwoMore .item .cover img {
 	width: 100%;
+}
+
+
+/*星星*/
+
+.star-vote {
+	width: 100px;
+	height: 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+.star-vote>span {
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	left: 0px;
+	top: 0px;
+}
+
+.star-vote>.add-star {
+	background-image: url(img/star.png);
+	background-size: 100%;
+}
+
+.star-vote>.del-star {
+	background-size: 100%;
+	background-image: url(img/star2.png);
+	background-color: white;
 }

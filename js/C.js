@@ -8,3 +8,21 @@
 //	Model(val,num);
 //
 //});
+
+
+
+
+
+/*
+<div id="star_con" class="star-vote">
+         <span id="add_star" class="add-star"></span>
+         <span id="del_star" class="del-star"></span>
+  </div>
+
+// 星星
+//subjects[i].rating.average  254  464
+									317
+var np = $("#title")
+showStar()
+console.log(np);
+*/

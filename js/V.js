@@ -17,17 +17,21 @@
 //title 是网站数据转对象的样子.在network中的preview中的title上 
 //data数据的title\             <%=title%></1>
 
+
+
+/**/
+
+
 //电影图书首页模板
-let View = `<%for(var i=0;i<subjects.length;i++){%>
+let View1 = `<%for(var i=0;i<subjects.length;i++){%>
 					<li class="movieList">
 							<img src="<%=subjects[i].images.medium%>" class="content2Img">
 					    	<div class="movieName"><%=subjects[i].title%></div>
 					    	<p class="movieStar">
-									<span>★</span>
-									<span>★</span>
-									<span>★</span>
-									<span>★</span>
-									<span>★</span>
+									<div id="star_con" class="star-vote">
+           								<span id="add_star" class="add-star"></span>
+             							<span id="del_star" class="del-star"></span>
+     								 </div>
 					      		<span class="moviePoint">
 					      			<%=subjects[i].rating.average%>
 					      		</span>
@@ -35,18 +39,17 @@ let View = `<%for(var i=0;i<subjects.length;i++){%>
 				    </li>
 				    <%}%>
 				`
-$('#temp').html(View);
+$('#temp1').html(View1);
 
 let View2 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 					<li class="movieList">
 							<img src="<%=subject_collection_items[i].cover.url%>" class="content2Img">
 					    	<div class="movieName"><%=subject_collection_items[i].title%></div>
 					    	<p class="movieStar">
-									<span>★</span>
-									<span>★</span>
-									<span>★</span>
-									<span>★</span>
-									<span>★</span>
+									<div id="star_con" class="star-vote">
+           								<span id="add_star" class="add-star"></span>
+             							<span id="del_star" class="del-star"></span>
+     								 </div>
 					      		<span class="moviePoint">
 					      			<%=subject_collection_items[i].rating.value%>
 					      		</span>
@@ -69,3 +72,64 @@ let View3 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 				    <%}%>
 				`
 $('#temp3').html(View3);
+
+let View4 = `<%for(var i=0;i<recommend_feeds.length;i++){%>
+				<div id="content">
+					<div id="contentOne">
+						<div id="contentOnebox">
+							<div id="contentOneleft">
+								<h3><%=recommend_feeds[i].title%></h3>
+								<p><%=recommend_feeds[i].target.desc%></p>
+							</div>
+							<div id="contentOneright" background: url("<%=recommend_feeds[i].target.author.cover_url%>") no-repeat;>
+							</div>
+						</div>
+						<div id="contentOnebottom">
+							<span>by <%=recommend_feeds[i].target.author.name%></span>
+							<span><%=recommend_feeds[i].source_cn%></span>
+						</div>
+					</div>
+				</div>
+			<%}%>
+			`
+$('#temp4').html(View4);
+
+/*let View5 = `<%for(var i=0;i<items.length;i++){%>
+						<li>
+							<div>
+								<div class="desc">
+									<a href=""><img src="<%=items[i].status.author.avatar%>" class="asdasdfasdf"></a>
+									<div class="user-info">
+										<strong>
+											<span><%=items[i].status.activity%></span>
+										</strong>
+										<div class="timestamp"><%=items[i].status.create_time%></div>
+									</div>
+								</div>
+									<div class="content">
+										<div></div>
+									</div>
+							</div>
+							<div class="feed-card">
+									<div class="title"><%=items[i].status.card.title%></div>
+									<div class="detail ">
+										<div class="text"><%=items[i].status.card.subtitle%></div>
+									</div>
+							</div>
+							<div class="info">
+								<div class="ic-btn ic-btn-like left"><span class="text"><%=items[i].status.like_count%></span></div>
+								<div class="ic-btn ic-btn-comment left"><span class="text"><%=items[i].status.resharers_count%></span></div>
+								<div class="ic-btn ic-btn-retweet left"><span class="text"><%=items[i].status.reshares_count%></span></div>
+								<div class="ic-btn ic-btn-more right"></div>
+							</div>
+						</li>
+				    <%}%>
+				`
+$('#temp5').html(View5);*/
+
+
+
+
+
+
+
