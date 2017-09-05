@@ -26,3 +26,8 @@ var np = $("#title")
 showStar()
 console.log(np);
 */
+
+/*var del_star = $("#del_star");
+var con_wid = $("#con_wid");
+showStar(n,del_star,con_wid);*/
+var moviePoint = document.getElementsByClassName("moviePoint")[0];

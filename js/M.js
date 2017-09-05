@@ -20,24 +20,42 @@
 //				});
 
 
-	function fn(className,t,temp,link){
+	function fn(className,t,temp,link,n){
 		$.ajax({
 			url:link,
 			dataType:'jsonp',
 			success:function(data){
-		//调用template <script type="text/html"> 和data数据
+				
 				let t = template(temp,data);
-				//把t放到id为app的div中
 				$(className).html(t);
-				console.log(data)
-			}
+				
+				var obj = data.subject_collection_items;
+			//循环obj的长度,得到评分,定义为 n.
+			    var starVote=document.getElementsByClassName("star-vote");//.offsetWidth;
+				var delStar = document.getElementsByClassName("del-star");//20个
+			
+				for (var i= 0; i < obj.length; i++){
+					let n = obj[i].rating.value;
+				//获取数据1的classname,和数据2的classname
+					var sW = starVote[i].offsetWidth;
+						showStar(n,delStar[i],sW)
+				}
+			},
+	//ajax
 		});
 	};
 	
+		function showStar(n,obj1,obj2){
+	                var del_move=(n*obj2)/180;
+	                obj1.style.backgroundPosition=-(Math.round(del_move)*10)+"px 0px";
+	                obj1.style.left=Math.round(del_move)*10+"px";
+	    }
+	
+	fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
 //影院热映
-fn('.movieUlsOne',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
+//fn('.movieUlsOne',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
 //影院热映更多
-fn('.movieUlsOneMore',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
+//fn('.movieUlsOneMore',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
 
 
 //免费在线观看影片
@@ -49,7 +67,6 @@ fn('.movieUlsThree',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_col
 fn('.movieUlsThreeMore',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/movie_latest/items?callback=?');
 
 //最受关注图书  虚构类
-//https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?os=ios&for_mobile=1&callback=fn
 
 fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
 fn('.bookUlsTwoMore',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
@@ -85,7 +102,7 @@ fn('.historyBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_colle
 fn('.wgBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_book_foreign_hot/items?os=ios&for_mobile=1&callback=?');
 
 //广播
-fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?');
+//fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?');
 //fn('.classicalMovie',"t2","temp2",'?');
 //fn('.classicalMovie',"t2","temp2",'?');
 //fn('.classicalMovie',"t2","temp2",'?');
@@ -95,18 +112,20 @@ fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anony
 //fn('.classicalMovie',"t2","temp2",'?');
 //fn('.classicalMovie',"t2","temp2",'?');
 //星星评分函数
-  function showStar(n){
-            	//定义大盒子的宽 和 透明星星的盒子
-                var con_wid=document.getElementById("star_con").offsetWidth;
-                var del_star=document.getElementById("del_star");
-                console.log(con_wid);
-                
-                //透明星星移动的像素
-                //相当于把盒子分成10份,用n去乘以每份的数值 得出占比
-                var del_move=(n*con_wid)/100;
-                
-                //透明盒子的背景位置为 
-                //透明盒子的左边为
-                del_star.style.backgroundPosition=-Math.round(del_move)*10+"px 0px";
-                del_star.style.left=Math.round(del_move)*10+"px";
-            }
+//function showStar(n,obj1,obj2){
+//          	//定义大盒子的宽 和 透明星星的盒子
+//           /*   var con_wid=document.getElementById("star_con").offsetWidth;
+//              var del_star=document.getElementById("del_star");
+//              console.log(con_wid);
+//            */  
+//              //透明星星移动的像素
+//              //相当于把盒子分成10份,用n去乘以每份的数值 得出占比
+//              var del_move=(n*obj2)/100;
+//              
+//              //透明盒子的背景位置为 
+//              //透明盒子的左边为
+////              obj1.css("color",'red');
+//              
+//              obj1.css("backgroundPosition",'-Math.round(del_move)*10+"px 0px"');
+//              obj1.css("left",'Math.round(del_move)*10+"px"');
+//          }

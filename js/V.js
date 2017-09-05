@@ -19,7 +19,6 @@
 
 
 
-/**/
 
 
 //电影图书首页模板
@@ -27,15 +26,16 @@ let View1 = `<%for(var i=0;i<subjects.length;i++){%>
 					<li class="movieList">
 							<img src="<%=subjects[i].images.medium%>" class="content2Img">
 					    	<div class="movieName"><%=subjects[i].title%></div>
-					    	<p class="movieStar">
+					    	<div class="movieStar">
 									<div id="star_con" class="star-vote">
            								<span id="add_star" class="add-star"></span>
              							<span id="del_star" class="del-star"></span>
-     								 </div>
+     								
 					      		<span class="moviePoint">
 					      			<%=subjects[i].rating.average%>
+					      			 </div>
 					      		</span>
-					     	 </p>
+					     	 </div>
 				    </li>
 				    <%}%>
 				`
@@ -45,19 +45,21 @@ let View2 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 					<li class="movieList">
 							<img src="<%=subject_collection_items[i].cover.url%>" class="content2Img">
 					    	<div class="movieName"><%=subject_collection_items[i].title%></div>
-					    	<p class="movieStar">
+					    	<div class="movieStar">
 									<div id="star_con" class="star-vote">
            								<span id="add_star" class="add-star"></span>
              							<span id="del_star" class="del-star"></span>
-     								 </div>
-					      		<span class="moviePoint">
-					      			<%=subject_collection_items[i].rating.value%>
-					      		</span>
-					     	 </p>
+							      		<span class="moviePoint">
+							      			<%=subject_collection_items[i].rating.value%>
+							      		</span>
+		     						</div>
+					      		
+					     	 </div>
 				    </li>
 				    <%}%>
 				`
 $('#temp2').html(View2);
+
 
 let View3 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 					<li class="movieList">
