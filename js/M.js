@@ -46,9 +46,9 @@
 	};
 	
 		function showStar(n,obj1,obj2){
-	                var del_move=(n*obj2)/180;
-	                obj1.style.backgroundPosition=-(Math.round(del_move)*10)+"px 0px";
-	                obj1.style.left=Math.round(del_move)*10+"px";
+	                var dM=(n*obj2)/30;
+	                obj1.style.backgroundPosition=-dM+"px 0px";
+	                obj1.style.left=dM+"px";
 	    }
 	
 	fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
