@@ -96,14 +96,6 @@ fn('.wgBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection
 
 //广播
 //fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
-//fn('.classicalMovie',"t2","temp2",'?');
 //星星评分函数
 //function showStar(n,obj1,obj2){
 //          	//定义大盒子的宽 和 透明星星的盒子
