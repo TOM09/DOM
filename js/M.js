@@ -67,25 +67,18 @@ fn('.movieUlsThree',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_col
 fn('.movieUlsThreeMore',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/movie_latest/items?callback=?');
 
 //最受关注图书  虚构类
-
 fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
 fn('.bookUlsTwoMore',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
-
 //最受关注图书  非虚构类
 fn('.bookUlsTwo',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_nonfiction/items?callback=?');
 fn('.bookUlsThreeMore',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_nonfiction/items?callback=?');
-
 //豆瓣书店
 fn('.bookUlsThree',"t3","temp3",'https://m.douban.com/rexxar/api/v2/subject_collection/market_product_book_mobile_web/items?callback=?');
 fn('.bookUlsOneMore',"t3","temp3",'https://m.douban.com/rexxar/api/v2/subject_collection/market_product_book_mobile_web/items?callback=?');
-
 //美剧
 fn('.usaMovie',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_tv_american_hot/items?callback=?');
-
 //主页内容
 fn('.bigBox',"t4","temp4",'https://m.douban.com/rexxar/api/v2/recommend_feed?callback=?');
-
-
 //电影界面最下方链接
 //经典
 fn('.classicalMovie',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_movie_classic_hot/items?callback=?');
