@@ -1,3 +1,5 @@
+$(function(){
+
 //用jqurey调用ajax函数
 //			$.ajax({
 					//接口,数据格式,data接收传过来的数据
@@ -20,7 +22,7 @@
 //				});
 
 
-	function fn(className,t,temp,link,n){
+	function fn(className,t,temp,link){
 		$.ajax({
 			url:link,
 			dataType:'jsonp',
@@ -31,33 +33,31 @@
 				
 				var obj = data.subject_collection_items;
 			//循环obj的长度,得到评分,定义为 n.
-			    var starVote=document.getElementsByClassName("star-vote");//.offsetWidth;
+//			    var starVote=document.getElementsByClassName("star-vote");//.offsetWidth;
 				var delStar = document.getElementsByClassName("del-star");//20个
+				var nSpan = document.getElementsByClassName("moviePoint")
 			
 				for (var i= 0; i < obj.length; i++){
-					let n = obj[i].rating.value;
 				//获取数据1的classname,和数据2的classname
-					var sW = starVote[i].offsetWidth;
-						showStar(n,delStar[i],sW)
+//				console.log(starVote[i])
+//					var sW = starVote[i].offsetWidth;
+					var n = nSpan[i].innerHTML;
+						showStar(n,delStar[i],100)
 				}
 			},
 	//ajax
 		});
 	};
+
 	
-		function showStar(n,obj1,obj2){
-	                var dM=(n*obj2)/30;
-	                obj1.style.backgroundPosition=-dM+"px 0px";
-	                obj1.style.left=dM+"px";
-	    }
-	
-	fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
+fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
 //影院热映
-//fn('.movieUlsOne',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
+fn('.movieUlsOne',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
 //影院热映更多
-//fn('.movieUlsOneMore',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
+fn('.movieUlsOneMore',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
 
-
+//排名250电影  /v2/movie/top250
+fn('.movieTop250',"t1","temp1",'https://api.douban.com/v2/movie/top250?callback=?');
 //免费在线观看影片
 fn('.movieUlsTwo',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/movie_free_stream/items?callback=?');
 fn('.movieUlsTwoMore',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/movie_free_stream/items?callback=?');
@@ -77,8 +77,10 @@ fn('.bookUlsThree',"t3","temp3",'https://m.douban.com/rexxar/api/v2/subject_coll
 fn('.bookUlsOneMore',"t3","temp3",'https://m.douban.com/rexxar/api/v2/subject_collection/market_product_book_mobile_web/items?callback=?');
 //美剧
 fn('.usaMovie',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_tv_american_hot/items?callback=?');
+
 //主页内容
 fn('.bigBox',"t4","temp4",'https://m.douban.com/rexxar/api/v2/recommend_feed?callback=?');
+
 //电影界面最下方链接
 //经典
 fn('.classicalMovie',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_movie_classic_hot/items?callback=?');
@@ -95,4 +97,36 @@ fn('.historyBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_colle
 fn('.wgBook',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_book_foreign_hot/items?os=ios&for_mobile=1&callback=?');
 
 //广播
-//fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?'); 
+fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?callback=?'); 
+
+//科幻启示录
+fn('.scienceMove',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_movie_unpopular_hot/items?os=ios&for_mobile=1&callback=?');
+
+
+
+
+
+
+
+
+
+
+
+
+
+//函数封装
+
+//星星
+function showStar(n,obj1,obj2){
+            var dM=(n*obj2)/20;
+            obj1.style.backgroundPosition = -dM+"px 0px";
+            obj1.style.left= dM +"px";
+}
+		
+
+
+
+
+
+
+})

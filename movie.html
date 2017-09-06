@@ -45,41 +45,11 @@
 						<a href="more/moviemore.html">更多</a>
 					</span>
 				</div>
-				<ul class="movieUls movieUlsOne">
-					<!--<li class="movieList">
-						<div id="content2" class="content2">
-
-							<a href="" class="content2MC">
-								<img src="img/5.jpg" class="content2Img">
-								<div class="movieName">战狼2
-								</div>
-								<p class="movieStar">
-									<span class="movieStarSP">
-							<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									</span>
-									<span class="moviePoint">
-							7.5
-						</span>
-								</p>
-							</a>
-
-						</div>
-					</li>-->
-				</ul>
+				<div class="moveUl">
+					<ul class="movieUls movieUlsOne">
+					</ul>
+				</div>
+				
 			</div>
 
 			<!--免费在线观影部分-->
@@ -88,6 +58,7 @@
 					<h3>免费在线观看新片</h3>
 					<span><a href="more/freemoviemore.html">更多</a></span>
 				</div>
+				<div class="moveUl">
 				
 				<ul class="movieUls movieUlsTwo">
 					<!--<li class="movieList">
@@ -125,6 +96,8 @@
 						</div>
 					</li>-->
 				</ul>
+				</div>
+				
 			</div>
 
 			<!--新片速递-->
@@ -133,39 +106,12 @@
 					<h3>新片速递</h3>
 					<span><a href="more/newmoviemore.html">更多</a></span>
 				</div>
+				<div class="moveUl">
+				
 				<ul class="movieUls movieUlsThree">
-					<!--<li class="movieList">
-						<div id="content2" class="content2">
-
-								<div class="content2Img">
-								</div>
-								<div class="movieName">战狼2
-								</div>
-								<p class="movieStar">
-									<span class="movieStarSP">
-							<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									<span>
-								★
-							</span>
-									</span>
-									<span class="moviePoint">
-							7.5
-						</span>
-								</p>
-						</div>
-					</li>-->
+					<!--模板拼接字符-->
 				</ul>
+				</div>
 			</div>
 		</div>
 		<!--发现好电影-->
@@ -173,34 +119,34 @@
 			<div class="contentMtitle">
 				<h3>发现好电影</h3>
 			</div>
-			<!--<div class="bestMove">-->
+			<div class="moveFindMovie">
 			<ul class="bestMoveUls">
 				<li>
-					<a href="">同时入选IMDB250和豆瓣电影250的电影</a>
+					<a href="more/movieTop250.html">同时入选IMDB250和豆瓣电影250的电影</a>
 				</li>
 				<li>
-					<a href="">带你进入不正常的世界</a>
+					<a href="more/classicalMovie.html">带你进入不正常的世界</a>
 				</li>
 				<li>
-					<a href="">用电【影】来祭奠逝去的岁月</a>
+					<a href="more/classicalMovie.html">用电【影】来祭奠逝去的岁月</a>
 				</li>
 				<li>
-					<a href="">女孩们的故事【电影】</a>
+					<a href="more/smallMovie.html">女孩们的故事【电影】</a>
+				</li><br />
+				<li>
+					<a href="more/scienceMove.html">科幻是未来的钥匙——科幻启示录【科幻题材】</a>
 				</li>
 				<li>
-					<a href="">科幻是未来的钥匙——科幻启示录【科幻题材】</a>
+					<a href="more/scienceMove.html">美国生活面面观</a>
 				</li>
 				<li>
-					<a href="">美国生活面面观</a>
+					<a href="more/smallMovie.html">2015终极期待</a>
 				</li>
-				<li>
-					<a href="">2015终极期待</a>
-				</li>
-				<li>
-					<a href="">经典韩国电影——收集100部</a>
+				<li class="movelastli">
+					<a href="more/goodMovie.html">经典韩国电影——收集100部</a>
 				</li>
 			</ul>
-			<!--</div>-->
+			</div>
 		</div>
 
 		<!--分类浏览-->
@@ -249,7 +195,10 @@
 		<script type="text/javascript" src="js/M.js"></script>
 		<script type="text/javascript" src="js/V.js"></script>
 		<script type="text/javascript" src="js/C.js"></script>
-		
+		<script type="text/javascript">
+//			var movieUls = $(".movieUls");
+//			console.log(movieUls)
+		</script>
 
 		
 	</body>

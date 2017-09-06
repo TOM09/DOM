@@ -18,7 +18,7 @@
 //data数据的title\             <%=title%></1>
 
 
-
+$(function(){
 
 
 //电影图书首页模板
@@ -61,6 +61,7 @@ let View2 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 $('#temp2').html(View2);
 
 
+
 let View3 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 					<li class="movieList">
 							<img src="<%=subject_collection_items[i].cover.url%>" class="content2Img">
@@ -83,7 +84,11 @@ let View4 = `<%for(var i=0;i<recommend_feeds.length;i++){%>
 								<h3><%=recommend_feeds[i].title%></h3>
 								<p><%=recommend_feeds[i].target.desc%></p>
 							</div>
-							<div id="contentOneright" background: url("<%=recommend_feeds[i].target.author.cover_url%>") no-repeat;>
+							
+							
+							<div id="contentOneright">
+							<img src="<%=recommend_feeds[i].target.author.cover_url%>" class="indexImg">
+								
 							</div>
 						</div>
 						<div id="contentOnebottom">
@@ -135,3 +140,4 @@ $('#temp5').html(View5);*/
 
 
 
+})

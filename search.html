@@ -12,51 +12,55 @@
 			})()
 		</script>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<script type="text/javascript" src="js/js.js"></script>
+		
 	</head>
 
 	<body>
-		<a href="javascript:;" class="close-open">关闭</a>
-		<form action="/search" method="GET" class="searchForm">
-			<div><input name="query" type="search"></div>
-		</form>
-		<!--内容-->
-		<ul class="searchUl">
-			<li>
-				<div>
-					<a href="movie.html"><strong style="color: rgb(35, 132, 232);">电影</strong><span>影院热映</span></a>
-					<a href=""><strong style="color: rgb(230, 70, 126);">同城</strong><span>周末活动</span></a>
-					<a href=""><strong style="color: rgb(159, 120, 96);">阅读</strong><span>电子书</span></a>
-					<a href=""><strong style="color: rgb(225, 100, 77);">东西</strong><span>心爱之物</span></a>
+		<div class="is-active">
+			<a href="index.html" class="close-open">关闭</a>
+			<form action="/search" method="GET" class="searchForm">
+				<div><input name="query" type="search"></div>
+			</form>
+			<!--内容-->
+			<ul class="searchUl">
+				<li>
+					<div>
+						<a href="movie.html"><strong style="color: rgb(35, 132, 232);">电影</strong><span>影院热映</span></a>
+						<a href=""><strong style="color: rgb(230, 70, 126);">同城</strong><span>周末活动</span></a>
+						<a href=""><strong style="color: rgb(159, 120, 96);">阅读</strong><span>电子书</span></a>
+						<a href=""><strong style="color: rgb(225, 100, 77);">东西</strong><span>心爱之物</span></a>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href=""><strong style="color: rgb(122, 106, 219);">电视</strong><span>正在热播</span></a>
+						<a href=""><strong style="color: rgb(42, 184, 204);">小组</strong><span>志趣相投</span></a>
+						<a href=""><strong style="color: rgb(87, 116, 197);">游戏</strong><span>虚拟世界</span></a>
+						<a href=""><strong style="color: rgb(64, 207, 169);">FM</strong><span>红心歌单</span></a>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="book.html"><strong style="color: rgb(159, 120, 96);">图书</strong><span>畅销排行</span></a>
+						<a href=""><strong style="color: rgb(244, 143, 46);">音乐</strong><span>新碟榜</span></a>
+						<a href=""><strong style="color: rgb(89, 108, 221);">应用</strong><span>玩手机</span></a>
+						<a href="" target="_blank"><strong style="color: rgb(66, 189, 86);">市集</strong><span>购买原创</span></a>
+					</div>
+				</li>
+			</ul>
+			<div class="navBottom">
+				<div class="nav-item">
+					<a class="toReg" href="https://accounts.douban.com/register?redir=https://m.douban.com/book/hotfiction">注册帐号</a>
+					<a class="toLogin" href="https://accounts.douban.com/login?redir=https://m.douban.com/book/hotfiction">登录豆瓣</a>
 				</div>
-			</li>
-			<li>
-				<div>
-					<a href=""><strong style="color: rgb(122, 106, 219);">电视</strong><span>正在热播</span></a>
-					<a href=""><strong style="color: rgb(42, 184, 204);">小组</strong><span>志趣相投</span></a>
-					<a href=""><strong style="color: rgb(87, 116, 197);">游戏</strong><span>虚拟世界</span></a>
-					<a href=""><strong style="color: rgb(64, 207, 169);">FM</strong><span>红心歌单</span></a>
+				<div class="nav-item">
+					<a class="toPC" href="/to_pc/?url=https%3A%2F%2Fm.douban.com%2Fbook%2Fhotfiction">使用桌面版</a>
+					<a class="toApp">使用豆瓣App</a>
 				</div>
-			</li>
-			<li>
-				<div>
-					<a href="book.html"><strong style="color: rgb(159, 120, 96);">图书</strong><span>畅销排行</span></a>
-					<a href=""><strong style="color: rgb(244, 143, 46);">音乐</strong><span>新碟榜</span></a>
-					<a href=""><strong style="color: rgb(89, 108, 221);">应用</strong><span>玩手机</span></a>
-					<a href="" target="_blank"><strong style="color: rgb(66, 189, 86);">市集</strong><span>购买原创</span></a>
-				</div>
-			</li>
-		</ul>
-		<div class="navBottom">
-			<div class="nav-item">
-				<a class="toReg" href="https://accounts.douban.com/register?redir=https://m.douban.com/book/hotfiction">注册帐号</a>
-				<a class="toLogin" href="https://accounts.douban.com/login?redir=https://m.douban.com/book/hotfiction">登录豆瓣</a>
-			</div>
-			<div class="nav-item">
-				<a class="toPC" href="/to_pc/?url=https%3A%2F%2Fm.douban.com%2Fbook%2Fhotfiction">使用桌面版</a>
-				<a class="toApp">使用豆瓣App</a>
 			</div>
 		</div>
+		
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 	</body>
 
 </html>
