@@ -30,26 +30,27 @@ $(function(){
 	moveU(movieUls);
 	moveU(bestMoveUls);     
 	
-		
-		$('#close-open').click(function(){
-			$('.is-active').css({"display":"none","z-index":-1});
+	
+		$('#search').click(function(){
+			$(".is-active").fadeIn();
+			$(".is-active").fadeIn("slow");
+			$(".is-active").fadeIn(3000);
 		});
 		
-		$('#search').click(function(){
+		
+		$('#close-open').click(function(){
+//			$('.is-active').css({"display":"none","z-index":-1});
+				  $(".is-active").fadeOut();
+				  $(".is-active").fadeOut("slow");
+				  $(".is-active").fadeOut(3000);
+				});
+		
+	/*	$('#search').click(function(){
 			console.log($('.is-active'))
 			$('.is-active').css({"display":"block","z-index":999});
 		})
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		*/
 		
 		
 //横向拖动封装函数
