@@ -31,26 +31,24 @@ $(function(){
 	moveU(bestMoveUls);     
 	
 	
-		$('#search').click(function(){
-			$(".is-active").fadeIn();
-			$(".is-active").fadeIn("slow");
-			$(".is-active").fadeIn(3000);
-		});
-		
+//		$('#search').click(function(){
+//			$(".is-active").fadeIn();
+//			$(".is-active").fadeIn("slow");
+//			$(".is-active").fadeIn(3000);
+//		});
+//		
 		
 		$('#close-open').click(function(){
-//			$('.is-active').css({"display":"none","z-index":-1});
-				  $(".is-active").fadeOut();
-				  $(".is-active").fadeOut("slow");
-				  $(".is-active").fadeOut(3000);
+			$('.is-active').css({"display":"none","z-index":-1});
 				});
 		
-	/*	$('#search').click(function(){
-			console.log($('.is-active'))
+		$('#search').click(function(){
+			
 			$('.is-active').css({"display":"block","z-index":999});
 		})
 		
-		*/
+		
+console.log(document.getElementsByClassName("movieList")[0])
 		
 		
 //横向拖动封装函数

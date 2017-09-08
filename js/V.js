@@ -22,8 +22,10 @@ $(function(){
 
 
 //电影图书首页模板
+
+
 let View1 = `<%for(var i=0;i<subjects.length;i++){%>
-					<li class="movieList">
+					<li class="movieList" onclick = "clickFn()";>
 							<img src="<%=subjects[i].images.medium%>" class="content2Img">
 					    	<div class="movieName"><%=subjects[i].title%></div>
 					    	<div class="movieStar">
@@ -39,7 +41,10 @@ let View1 = `<%for(var i=0;i<subjects.length;i++){%>
 				    </li>
 				    <%}%>
 				`
+
 $('#temp1').html(View1);
+
+
 
 let View2 = `<%for(var i=0;i<subject_collection_items.length;i++){%>
 					<li class="movieList">
@@ -133,11 +138,6 @@ $('#temp4').html(View4);
 				    <%}%>
 				`
 $('#temp5').html(View5);*/
-
-
-
-
-
 
 
 })

@@ -28,6 +28,8 @@ $(function(){
 			dataType:'jsonp',
 			success:function(data){
 				
+				console.log(data)
+				
 				let t = template(temp,data);
 				$(className).html(t);
 				
@@ -36,6 +38,8 @@ $(function(){
 //			    var starVote=document.getElementsByClassName("star-vote");//.offsetWidth;
 				var delStar = document.getElementsByClassName("del-star");//20个
 				var nSpan = document.getElementsByClassName("moviePoint")
+				
+
 			
 				for (var i= 0; i < obj.length; i++){
 				//获取数据1的classname,和数据2的classname
@@ -51,6 +55,10 @@ $(function(){
 
 	
 fn('.bookUlsOne',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?callback=?');
+
+console.log($('.moveUl').children())
+
+
 //影院热映
 fn('.movieUlsOne',"t1","temp1",'https://api.douban.com/v2/movie/in_theaters?callback=?');
 //影院热映更多
@@ -101,14 +109,6 @@ fn('.comment-list',"t4","temp4",'https://m.douban.com/rexxar/api/v2/status/anony
 
 //科幻启示录
 fn('.scienceMove',"t2","temp2",'https://m.douban.com/rexxar/api/v2/subject_collection/filter_movie_unpopular_hot/items?os=ios&for_mobile=1&callback=?');
-
-
-
-
-
-
-
-
 
 
 
