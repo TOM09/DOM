@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+		<style type="text/css">
+			ul{
+				overflow: hidden;
+				width: 100000px;
+				height: 600px;
+				margin: 100px;
+			}
+			li{
+				float: left;
+			}
+		</style>
+	<body>
+		<ul class="list">
+
+		</ul>
+		<ul class="list2">
+
+		</ul>
+		
+		<script src="js/jquery-3.1.1.js">
+		</script>
+		
+		<script type="text/javascript">
+		var list = $(".list")
+		var list2 = $(".list2")
+		
+		fn(list,'https://m.douban.com/rexxar/api/v2/subject_collection/movie_free_stream/items?callback=?')
+		fn(list2,'https://m.douban.com/rexxar/api/v2/subject_collection/movie_latest/items?callback=?')
+		
+			function fn(className,link){
+				$.ajax({
+					url: link,
+					dataType: 'jsonp',
+					success: function(data) {
+						
+						var data = data.subject_collection_items;
+						
+						listS(className,data);
+						
+						//li点击事件
+						var movieList = $(".movieList");
+						liClick(movieList);
+					}
+				})
+			}
+		
+		//	把非标准json格式的字符串转为对象格式
+		//	data = new Function("",	"return" + data)
+		
+				
+//		fn(className,link);
+		
+			function liClick(obj){
+				
+				console.log(obj)
+				
+				for (var i = 0; i < obj.length; i++) {
+					obj[i].onclick = function(){
+						
+					window.location.href='index.html';
+					
+					}
+					
+				}
+			
+			}
+			
+			
+					
+			function listS(obj,data){
+				//加下标把jqurey对象转为原生对象
+				var list = document.getElementById("list");
+				for(var i=0;i<data.length;i++){ 
+					var li = document.createElement("li");
+					li.className = 'movieList';
+					obj[0].appendChild(li);
+					//https://movie.douban.com/subject/24753477/
+					li.innerHTML +=`<a href = "https://movie.douban.com/subject/${data[i].id}">   //12314124
+					<img src="${data[i].cover.url}" class="content2Img">
+				    	<div class="movieName">${data[i].title}</div>
+				    	<div class="movieStar">
+							<div id="star_con" class="star-vote">
+   								<span id="add_star" class="add-star"></span>
+     							<span id="del_star" class="del-star"></span>
+					      		<span class="moviePoint">
+					      			${data[i].rating.value}
+					      		</span>
+     						</div>
+				     	</div>
+				     	</a>
+				    `
+				    }
+			}
+			
+//						console.log($(".movieList")[0])
+			
+		</script>
+	</body>
+</html>

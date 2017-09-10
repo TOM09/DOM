@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            .star-vote{
+                width:100px;
+                height:20px;
+                position:relative;
+                overflow:hidden;
+            }
+            .star-vote>span{
+                position:absolute;
+                width:100px;
+                height:20px;
+                background-size:cover;
+                background-repeat:no-repeat;
+                left:0px;
+                top:0px;
+            }
+            .star-vote>.add-star{
+                background-image:url(img/star.png);
+                background-size: 100%;
+            }
+            .star-vote>.del-star{
+            	background-size: 100%;
+                background-image:url(img/star2.png);
+                background-color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="star_con" class="star-vote">
+            <span id="add_star" class="add-star"></span>
+            <span id="del_star" class="del-star"></span>
+        </div>
+        <script src="js/jquery-3.1.1.js">
+        	
+        </script>
+        <script>
+        
+            var de = $("#del_star");
+            var co = $("#con_wid");
+
+            
+        showStar(3.5,de,co);
+          
+          
+            function showStar(n,o1,o2){
+            	
+                var del_move=(n*o2)/100;
+//              o1.css('background','red');
+                
+                o1.css('backgroundPosition',-Math.round(del_move)*10+"px 0px");
+                o1.css('left',Math.round(del_move)*10+"px");
+            }
+
+        
+        
+        
+        /*
+            window.onload=showStar(3.34764576);
+            //n表示后台获取的星数
+            
+            function showStar(n){
+            	//定义大盒子的宽 和 透明星星的盒子
+                var con_wid=document.getElementById("star_con").offsetWidth;
+                var del_star=document.getElementById("del_star");
+                console.log(con_wid);
+                
+                //透明星星移动的像素
+                //相当于把盒子分成10份,用n去乘以每份的数值 得出占比
+                var del_move=(n*con_wid)/100;
+                
+                //透明盒子的背景位置为 
+                //透明盒子的左边为
+                del_star.style.backgroundPosition=-Math.round(del_move)*10+"px 0px";
+                del_star.style.left=Math.round(del_move)*10+"px";
+            }*/
+        </script>
+    </body>
+</html>
