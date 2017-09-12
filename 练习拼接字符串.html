@@ -17,7 +17,19 @@
 			}
 		</style>
 	<body>
-		<ul class="list">
+		<script type="text/javascript">
+			function Fn(){
+				
+			}
+			Fn.prototype.p = function(){
+				console.log(3.14)
+			}
+			
+			var n = new Fn()
+			n.p = 345;
+			console.log(n.p);
+		</script>
+	<!--	<ul class="list">
 
 		</ul>
 		<ul class="list2">
@@ -53,6 +65,7 @@
 		
  		//	把非标准json格式的字符串转为对象格式
 		//	data = new Function("",	"return" + data)
+
 				
 //		fn(className,link);
 		
@@ -71,10 +84,6 @@
 			
 			}
 			
-			for (var i = 0; i < obj.length; i++) {
-					obj[i].onclick = function(){
-						
-					window.location.href='index.html';
 			
 					
 			function listS(obj,data){
@@ -101,7 +110,7 @@
 				    `
 				    }
 			}
-			
+			-->
 //						console.log($(".movieList")[0])
 			
 		</script>
