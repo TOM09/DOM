@@ -87,13 +87,49 @@
 		此时问题是:首先如果这个值在原型链上.也能返回值.所以不好判断是不是在自己身上.
 		有a属性,并且a属性就在自己身上,但是值是undefined,误会大了.
 	*/
-	
+/*	
 	
 	三.组件开发
 		用面向对象的技术开发DOM特效.页面上有多个轮播图,轮播图的信号量会乱.此时最好的
 	解决办法就是面向对象,让轮播图的信号量,写在自己身上就可以了.
 		
 		组件开发有两种模式,第一种是DOM结构需要写在HTML中,第二种是js创建.
+		
+	*/
+/*	
+	四.观察者模式
+	观察者模式又叫做 发布-订阅模式    它定义了对象间的一种1 对 n的依赖关系,当一个对象的状态发生改变时,
+	所有"订阅"了它的对象都将得到通知,发布者要自己维持列表,实例数组,当自己的状态发生改变的时候,调用每一个
+	订阅者的listen方法,把最新数值告诉它们.
+	
+	老师就是发布者(publisher),学生就是订阅者(subscriber).老师就是1,学生就是n.发布者老师要
+	自己维持自己的学生实例数组,自己有一个属性students存放着所有订阅自己的人的列表,当发布作业的时候,
+	用for循环分别调用每个订阅者的相应方法即可.
+	//收听者
+			function rmb(){
+				this.listener = [];
+			}
+			
+			rmb.prototype.regist = function(){
+				this.listener.push(obj)
+			}
+			//注册者
+			rmb.prototype.inde=function(){
+				for (var i = 0; i < this.waibi.length; i++) {
+					this.waibi[i].listen(content);
+				}
+			}
+			
+			function waibi(){
+				//耦合性
+				rmb.regist(this)
+			}
+			var rmb = new rmb();
+	*/
+	
+	六.中介者模式
+	
+	
 		</script>
 	</body>
 </html>
