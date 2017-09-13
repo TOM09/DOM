@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id = "carousel"></div>
+		<script src="js/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+		//轮播图类
+			function Carousel(id){
+				this.$dom = $("#" + id)
+				//初始化
+				this.init();
+			}
+			//初始化
+			Carousel.prototype.init = function(){
+				//创建DOM,上树
+				this.$imagesUl = $("<ul></ul>")
+			}
+			var c = new Carousel("lunbo");
+		</script>
+	</body>
+</html>
