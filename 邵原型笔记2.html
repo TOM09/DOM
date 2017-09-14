@@ -132,6 +132,23 @@
 	中介者模式简单一点,不能主动通知.
 	老师通过QQ群告诉学生作业,那么QQ群就是中介者.相当于全局变量.
 	
+两个模式的区别:
+	观察者模式能够主动推送信息,每个收听者能够实时的得到发布者的信息:所以适合只做汇率转换,flappybird
+	终结者模式不主动推送信息,当学生需要写作业的时候,主动去找中介者拿.
+	function qqqun (){
+		this.zuoye = "";
+	}
+	
+	function teacher(){
+	}
+	
+	teacher.prototype.liuzuoye = function(content){
+		//改变中介者的内容
+		qqqun.zuoye = content;
+	}
+	
+	function student(){
+	}
 		</script>
 	</body>
 </html>
