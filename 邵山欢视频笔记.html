@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//取随机数  一个0-1的随机数 
+		//+8后就是0-8的随机数
+		
+		//再+3后 就是取3- 11的随机数 
+			console.log(parseInt(a*8))
+			var a = Math.random()
+			console.log(parseInt(a*8))
+			console.log(parseInt(a*8)+3)
+			
+//有公式,如果想要在[a,b] 闭区间取随机数,能取到a,也能取到b:
+		parseInt(Math,random()*(b-a+1))+a;
+		
+		//逻辑与&的短路  如果,a&&b  a如果是false 不管b是什么,都输出a.
+		//如果a是true,不管b是什么,都输出b
+		var a = true;
+		var b = 123;
+		console.log(a&&b)
+		
+		//逻辑或的短路也是类似的,a||b
+		如果a是真,输出a,如果a是假,输出b
+		0||18  //18  前面假,输出后面
+		18||0  //18  前面真,输出前面
+		
+		undefined || NaN  //NaN  前面假  输出后面
+		NaN || undefined  //undefined  前面假  输出后面
+		
+		
+		</script>
+	</body>
+</html>
