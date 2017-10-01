@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+	三种排序方法 : 
+		1.冒泡排序  
+			主要是让数组中的前一个和后一个比  如果后一个大  就让前一个等于后一个.
+		
+		2.快速排序
+			通过一趟排序将要排序的数据分割成独立的两部分,其中一部分的所有数据
+		都比另一部分的所有数据小,然后再按此方法对这两部分分别进行快速排序,整个排序过程
+		可以递归进行,以此达到整个数据变成有序序列
+		
+		3.系统内置的sort函数
+			arr.sort();  默认是按字符编码排的  要用参数写法
+			//从小到大:
+			arr.sort(function(a,b){
+				if(a>b){
+					return 1;   
+				}else{
+					return -1;  
+					
+				}
+			})
+			
+	二.常见字符串算法:
+	1.短横变驼峰
+	把单词border-left-color变为borderLeftColor
+	
+	三,三种隐藏
+	display:none;       隐藏不占位置
+	visibility:hidden;	隐藏占位置
+	Overflow:hidden;	隐藏超出内容
+		</script>
+	</body>
+</html>
