@@ -15,19 +15,24 @@
 	<script type="text/javascript">
 		$(function(){
 			console.log(1);
-			$("#btn").click(function(){
-				$("#box").hide();
-			})
-			$("#btn2").click(function(){
-				$("#box").css("background-color","#000000");
+			$(#btn).click(function(){
+				$(this).attr("title","我是动态属性")
 			})
 		})
+		
+		//边框折叠
+		//边框合并
+		//用在table表格里
+		table{
+			border-collapse:collapse;
+			border-spacing:0;
+		}
+		s
 	</script>
 	<body>
 		<input type="button" name="" id="btn" value="按钮" />
 		<input type="button" name="" id="btn2" value="按钮" />
 		<div id="box">
-			btn.onclick
 			
 		</div>
 	</body>
