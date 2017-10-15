@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/*
+			var arr = [1,2,3,4,5,6,1,2,3]
+			var re = [];
+			//循环数组  和 空数组  进行比对  如果re数组里有了arr   就break   
+			//最后 如果re的长度 =j  说明循环完毕  把数组放到re空数组中   console空数组
+			for (var i = 0; i < arr.length; i++) {
+				for (var j = 0; j < re.length; j++) {
+					if(arr[i]==re[j]) break;
+				}
+				if(j == re.length){
+					re.push(arr[i]);
+				}
+			}
+			console.log(re)*/
+			
+			//对象索引.
+			var arr = [1,2,3,4,5,6,1,2,3]
+			var obj = {};
+			var re = [];
+			for (var i = 0; i < arr.length; i++) {
+				if(!obj[arr[i]]){
+				re.push(arr[i]);
+				obj[arr[i]] = 1;
+				}
+			}
+			console.log(re)
+		</script>
+	</body>
+</html>
