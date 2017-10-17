@@ -1,109 +1,41 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" name="viewport" content="width=device-width,user-scalable=no">
+		<meta charset="utf-8">
 		<title></title>
 		<style>
-		body,ul,li,#box{
-			padding: 0;
-			margin: 0;
-			
-		}
-			#box{
-				width: 100%;
-				height: 15rem;
-				position: relative;
-				overflow-x:hidden;
-			}
-			ul,li{
-
-				list-style: none;
-			}
-			ul{
-				display: flex;
-   				flex-direction: row;
-				position: absolute;
-				overflow: hidden;
-				left: 0;
-			}
-			li{
-				width: 8rem;
-				height: 12rem;
-				float: left;
-				background-color: red;
-				margin: 0.8rem 0.8rem 0.8rem 0;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="box">
-			<ul id="list" class="asdf">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
-		<script src="js/jquery-3.1.1.js"></script>
-		<script>
-			/*var box = $("box");
-			var list = $("list");$("list")
-			var li = $("li");*/
-			
-//			var listL;
-//			var list = document.getElementById("list");
-			$("#list").on('touchstart',function(ev){
-				lW = $(this).width() - screen.width;
+			</head> 
+			<body> 
+			<script type="text/javascript">
+				console.log(1)
+				/*深拷贝*/
+				var obj= {
+					a: 1, 
+					b: 2
+				};
+				console.log(1);
 				
-				//定义按下的x的点
-				this.x = ev.originalEvent.targetTouches[0].pageX;
-				console.log(list)
-				this.ulLeft = $(this).offset().left;
-			})
-			
-			$("#list").on('touchmove',function(ev){
-				//移动时的x点
-				var x2 = ev.originalEvent.targetTouches[0].pageX;
-				var l =x2+this.ulLeft-this.x
+				function deepclone(obj) {
+					//给一个跳出去的条件，这个条件表示当传进来的参数不是对象的时候，就不需要递归了
+					if(typeof(obj) !='object') {
+						return obj;
+					}
+					//如果要复制的对象里有个属性的值是数组，那复制的结果就必需还是数组
+					if(obj instanceof Array) {
+						var newObj=[];
+					}
+					else {
+						var newObj= {}
+						;
+					}
+					for( var attr in obj) {
+						newObj[attr]=deepclone(obj[attr]);
+					}
+					return newObj;
+				}
 				
-			if(l <= -lW ){
-				 l = -lW
-			}else if(l >= 0){
-				l = 0;
-			}
-				$(this).css('left',l + "px");
-				
-
-			});
-			
-	/*		
-			
-			list.addEventListener('touchstart',function(ev){
-				//定义按下的x的点
-				x = ev.targetTouches[0].pageX;
-//				定义起始的left点
-				listL = this.offsetLeft;
-				//定义移动量
-//				maxL = x - listL;
-			});
-			
-			
-			
-			
-			list.addEventListener('touchmove',function(ev){
-//				ev.preventDefault();
-				//移动时的x点
-				x2 = ev.targetTouches[0].pageX;
-				
-				this.style.left = x2+listL - x + "px";
-				
-			});
-			/*list.addEventListener('touchend',function(){
-//				console.log(300);
-			});*/
-		</script>
-	</body>
+				var obj2=deepclone(obj);
+				console.log(obj.a);
+			</script> 
+	</body> 
 </html>
